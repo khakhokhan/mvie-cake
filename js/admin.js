@@ -1,5 +1,83 @@
 // M'Vie Cake - Comprehensive Admin CMS Logic
 
+// ==========================================
+// ADMIN SECURITY & PASSCODE SHIELD
+// ==========================================
+// Cryptographic SHA-256 Hash of passcode "010423"
+const ADMIN_PASSCODE_HASH = "bbc6f061fd16b6f015ad33d80c2668cfcbdfaf142c5d1c2a2df4ed981b822d13";
+const AUTH_SESSION_KEY = "mvie_admin_authenticated";
+
+async function hashString(str) {
+  try {
+    const msgBuffer = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  } catch (e) {
+    return str;
+  }
+}
+
+async function verifyPasscode(input) {
+  const hash = await hashString(input);
+  return hash === ADMIN_PASSCODE_HASH || input === "010423";
+}
+
+function checkAdminAuth() {
+  const isAuth = sessionStorage.getItem(AUTH_SESSION_KEY) === "true";
+  const gateEl = document.getElementById('admin-auth-gate');
+  const appEl = document.getElementById('admin-app');
+
+  if (isAuth) {
+    if (gateEl) gateEl.classList.add('hidden');
+    if (appEl) appEl.classList.remove('hidden');
+    initAdmin();
+  } else {
+    if (gateEl) gateEl.classList.remove('hidden');
+    if (appEl) appEl.classList.add('hidden');
+    const input = document.getElementById('admin-passcode');
+    if (input) setTimeout(() => input.focus(), 150);
+  }
+}
+
+async function handleAdminLogin(e) {
+  if (e) e.preventDefault();
+  const inputEl = document.getElementById('admin-passcode');
+  const errorMsg = document.getElementById('auth-error-msg');
+  const card = document.getElementById('auth-card');
+  if (!inputEl) return;
+
+  const entered = inputEl.value.trim();
+  const isValid = await verifyPasscode(entered);
+
+  if (isValid) {
+    sessionStorage.setItem(AUTH_SESSION_KEY, "true");
+    if (errorMsg) errorMsg.classList.add('hidden');
+    checkAdminAuth();
+    showToast("Xác thực quản trị viên thành công!", "success");
+  } else {
+    inputEl.value = "";
+    if (errorMsg) errorMsg.classList.remove('hidden');
+    if (card) {
+      card.classList.remove('shake');
+      void card.offsetWidth; // trigger reflow
+      card.classList.add('shake');
+    }
+    inputEl.focus();
+  }
+}
+
+function handleAdminLogout() {
+  sessionStorage.removeItem(AUTH_SESSION_KEY);
+  location.reload();
+}
+
+function togglePasscodeVisibility() {
+  const input = document.getElementById('admin-passcode');
+  if (!input) return;
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
+
 let CONFIG = getFullConfig();
 
 // Format Currency
@@ -1045,5 +1123,5 @@ function initAdmin() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initAdmin();
+  checkAdminAuth();
 });

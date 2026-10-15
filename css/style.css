@@ -440,4 +440,15 @@ body {
   transform: translateY(-3px);
 }
 
+/* Admin Auth Gate Shake Animation */
+@keyframes authShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-9px); }
+  40%, 80% { transform: translateX(9px); }
+}
+
+.shake {
+  animation: authShake 0.4s ease-in-out;
+}
+
 
