@@ -66,6 +66,14 @@ function applyFullConfiguration() {
     el.textContent = CONFIG.store.hotline;
     if (el.tagName === 'A') el.href = `tel:${CONFIG.store.hotline.replace(/\s+/g, '')}`;
   });
+  document.querySelectorAll('.store-hotline-link').forEach(a => {
+    const clean = (CONFIG.store.hotline || '').replace(/\D+/g, '');
+    a.href = clean ? `tel:${clean}` : 'tel:0909000000';
+  });
+  document.querySelectorAll('.store-zalo-link').forEach(a => {
+    const clean = (CONFIG.store.hotline || '').replace(/\D+/g, '');
+    a.href = clean ? `https://zalo.me/${clean}` : 'https://zalo.me/';
+  });
   document.querySelectorAll('.store-fb-link').forEach(a => {
     a.href = CONFIG.store.facebookUrl;
   });
@@ -276,20 +284,84 @@ function init3DTiltCards() {
   // Pure CSS handles all card transitions and hover states smoothly without mousemove event listeners
 }
 
-// Render Products Catalog (Luxury 3D Cards with Generous Spacing)
+// Search & Filter State
+let currentSearchQuery = "";
+let currentTasteFilter = "";
+
+function handleMenuSearch(val) {
+  currentSearchQuery = (val || "").trim();
+  const clearBtn = document.getElementById('menu-search-clear');
+  if (clearBtn) {
+    clearBtn.classList.toggle('hidden', !currentSearchQuery);
+  }
+  renderProducts(currentFilter);
+}
+
+function clearMenuSearch() {
+  const input = document.getElementById('menu-search-input');
+  if (input) input.value = '';
+  handleMenuSearch('');
+}
+
+function filterByTaste(taste) {
+  currentTasteFilter = taste || "";
+  document.querySelectorAll('.taste-chip').forEach(btn => {
+    const btnOnClick = btn.getAttribute('onclick') || '';
+    if ((taste === '' && btnOnClick.includes("''")) || (taste && btnOnClick.includes(`'${taste}'`))) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  renderProducts(currentFilter);
+}
+
+// Render Products Catalog (Luxury Boutique 3D Cards with Clean Unified CTA)
 function renderProducts(filter = "all") {
   const container = document.getElementById('products-grid');
   if (!container) return;
 
   const productsList = CONFIG.products || [];
-  const filtered = filter === "all" ? productsList : productsList.filter(p => p.category === filter);
+  let filtered = filter === "all" ? productsList : productsList.filter(p => p.category === filter);
+
+  // Apply taste chip filter
+  if (currentTasteFilter) {
+    const taste = currentTasteFilter.toLowerCase();
+    filtered = filtered.filter(p => {
+      const name = (p.name || '').toLowerCase();
+      const desc = (p.desc || '').toLowerCase();
+      const badge = (p.badge || '').toLowerCase();
+      const note = (p.note || '').toLowerCase();
+      return name.includes(taste) || desc.includes(taste) || badge.includes(taste) || note.includes(taste);
+    });
+  }
+
+  // Apply search text query
+  if (currentSearchQuery) {
+    const q = currentSearchQuery.toLowerCase();
+    filtered = filtered.filter(p => {
+      const name = (p.name || '').toLowerCase();
+      const desc = (p.desc || '').toLowerCase();
+      const badge = (p.badge || '').toLowerCase();
+      const optionsStr = (p.options || []).map(o => o.name).join(' ').toLowerCase();
+      return name.includes(q) || desc.includes(q) || badge.includes(q) || optionsStr.includes(q);
+    });
+  }
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full py-20 text-center text-stone-400">
-        <span class="text-5xl block mb-3">🍰</span>
-        <p class="font-serif-luxury text-xl font-bold text-stone-600">Chưa có món bánh nào trong danh mục này</p>
-        <p class="text-xs text-stone-400 mt-1">Bạn có thể thêm món mới bất kỳ lúc nào trong trang Quản trị!</p>
+      <div class="col-span-full py-16 text-center text-stone-400">
+        <span class="text-5xl block mb-3">🔍</span>
+        <p class="font-serif-luxury text-xl font-bold text-stone-600">Không tìm thấy món bánh phù hợp</p>
+        <p class="text-xs text-stone-400 mt-1.5 max-w-sm mx-auto">
+          Thử tìm với từ khóa khác như "Matcha", "Choco", "Flan" hoặc bấm nút bên dưới để xem toàn bộ menu nhé!
+        </p>
+        <button 
+          onclick="clearMenuSearch(); filterByTaste(''); filterCategory('all')" 
+          class="mt-4 px-5 py-2 rounded-full bg-[#1E1612] text-white text-xs font-bold hover:bg-[#3B6998] transition-all shadow-xs"
+        >
+          Xem Lại Toàn Bộ Menu
+        </button>
       </div>
     `;
     return;
@@ -366,28 +438,23 @@ function renderProducts(filter = "all") {
               </span>
             </div>
 
-            <!-- 3D Layer 2 Buttons with Spacious Padding -->
-            <div class="layer-3d-z2 grid grid-cols-2 gap-3 pt-1">
-              <button 
-                onclick="openQuickView(${product.id})"
-                class="w-full py-3 px-3 rounded-full border border-stone-300 hover:border-[#1E1612] text-xs font-bold text-stone-700 hover:bg-stone-50 transition-all text-center"
-              >
-                Chi tiết
-              </button>
+            <!-- Unified Single High-Impact CTA Button (Zero Decision Fatigue) -->
+            <div class="layer-3d-z2 pt-1">
               ${isAvailable ? `
                 <button 
                   onclick="openQuickView(${product.id})"
-                  class="w-full py-3 px-3 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 group/btn"
+                  class="w-full py-3.5 px-4 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs sm:text-[13px] font-bold shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-2 group/btn"
                 >
-                  <img src="assets/icons/shopping-cart.png" class="w-3.5 h-3.5 object-contain group-hover/btn:scale-110 transition-transform" alt="">
-                  <span>Chọn mua</span>
+                  <img src="assets/icons/shopping-cart.png" class="w-3.5 h-3.5 object-contain filter invert group-hover/btn:scale-110 transition-transform" alt="">
+                  <span>Tùy Chọn Size & Mua</span>
+                  <span class="text-sm font-normal group-hover/btn:translate-x-1 transition-transform">→</span>
                 </button>
               ` : `
                 <button 
                   disabled
-                  class="w-full py-3 px-3 rounded-full bg-stone-200 text-stone-400 text-xs font-bold cursor-not-allowed text-center"
+                  class="w-full py-3.5 px-4 rounded-full bg-stone-200 text-stone-400 text-xs font-bold cursor-not-allowed text-center"
                 >
-                  Hết hàng
+                  Tạm Hết Hàng
                 </button>
               `}
             </div>
@@ -434,6 +501,7 @@ class CartState {
     }
 
     this.save();
+    triggerCartPulse();
     showToast(`Đã thêm "${product.name} (${opt.name})" vào giỏ hàng! 🍮`, "success");
   }
 
@@ -484,9 +552,34 @@ class CartState {
   }
 }
 
+// Micro-interaction: Cart Tactile Bounce Pulse
+function triggerCartPulse() {
+  const desktopCart = document.getElementById('cart-btn-desktop');
+  const floatingCart = document.getElementById('cart-btn-floating');
+  const mobileBadge = document.getElementById('cart-badge-mobile');
+
+  [desktopCart, floatingCart, mobileBadge].forEach(el => {
+    if (!el) return;
+    el.classList.remove('cart-bounce-pulse');
+    void el.offsetWidth; // Force DOM reflow
+    el.classList.add('cart-bounce-pulse');
+    setTimeout(() => el.classList.remove('cart-bounce-pulse'), 650);
+  });
+}
+
+// 1-Click Upsell Item in Cart Drawer
+function quickAddUpsellItem() {
+  const pannacotta = (CONFIG.products || []).find(p => (p.name || '').toLowerCase().includes('panna cotta 120ml'))
+    || (CONFIG.products || []).find(p => (p.category || '').toLowerCase().includes('pannacotta'))
+    || (CONFIG.products || [])[0];
+  if (pannacotta) {
+    cart.addItem(pannacotta, pannacotta.options[0], "Mua kèm giỏ hàng");
+  }
+}
+
 const cart = new CartState();
 
-// Render Cart Drawer
+// Render Cart Drawer with Free Ship Progress & Upsell
 function renderCartDrawer() {
   const container = document.getElementById('cart-items-container');
   const footerContainer = document.getElementById('cart-footer');
@@ -514,7 +607,51 @@ function renderCartDrawer() {
 
   if (footerContainer) footerContainer.classList.remove('hidden');
 
-  container.innerHTML = cart.items.map((item, index) => `
+  // Free shipping & reward progress calculation
+  const totalPrice = cart.getTotalPrice();
+  const goalPrice = 150000;
+  const progressPct = Math.min(100, Math.round((totalPrice / goalPrice) * 100));
+  const remaining = goalPrice - totalPrice;
+
+  const progressHtml = `
+    <div class="mb-4 p-3.5 rounded-2xl bg-[#EEF7FD] border border-[#9BC7E8]/40">
+      <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+        <span class="text-[#3B6998] flex items-center gap-1.5">
+          <span>🛵</span>
+          ${totalPrice >= goalPrice ? 'Đã đạt ưu đãi Freeship & Quà Tặng!' : `Thêm ${formatVND(remaining)} để nhận ưu đãi!`}
+        </span>
+        <span class="text-[11px] text-[#3B6998] font-black">${progressPct}%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-white overflow-hidden shadow-2xs">
+        <div class="h-full bg-gradient-to-r from-[#9BC7E8] to-[#3B6998] rounded-full transition-all duration-500" style="width: ${progressPct}%"></div>
+      </div>
+      <p class="text-[10px] text-stone-500 mt-1.5 font-medium">
+        ${totalPrice >= goalPrice ? '🎉 Chúc mừng! Đơn hàng được hỗ trợ 15k phí ship & tặng kèm nến nghệ thuật!' : 'Đơn từ 150k được hỗ trợ 15k ship & tặng nến sinh nhật.'}
+      </p>
+    </div>
+  `;
+
+  // Upsell suggestion
+  const hasPannaCotta = cart.items.some(i => (i.name || '').toLowerCase().includes('panna'));
+  const upsellHtml = !hasPannaCotta ? `
+    <div class="mt-4 p-3 rounded-2xl bg-amber-50/80 border border-amber-200/60 flex items-center justify-between gap-2.5">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <img src="assets/panna-cotta.jpg" class="w-10 h-10 rounded-xl object-cover shrink-0 border border-amber-200/50" alt="Panna Cotta">
+        <div class="min-w-0">
+          <p class="text-xs font-bold text-amber-950 truncate">Thêm Panna Cotta 120ml?</p>
+          <p class="text-[10px] text-amber-700 font-semibold">Chỉ 12.000đ • Mát lành thanh ngọt</p>
+        </div>
+      </div>
+      <button 
+        onclick="quickAddUpsellItem()" 
+        class="px-3 py-1.5 rounded-xl bg-[#FEF08A] hover:bg-yellow-300 text-amber-950 text-xs font-bold transition-all shrink-0 shadow-2xs"
+      >
+        + Thêm
+      </button>
+    </div>
+  ` : '';
+
+  const itemsHtml = cart.items.map((item, index) => `
     <div class="flex items-center gap-3 p-3.5 bg-stone-50 rounded-2xl border border-stone-100">
       <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover border border-stone-200">
       <div class="flex-1 min-w-0">
@@ -535,6 +672,14 @@ function renderCartDrawer() {
       </button>
     </div>
   `).join('');
+
+  container.innerHTML = `
+    ${progressHtml}
+    <div class="space-y-3">
+      ${itemsHtml}
+    </div>
+    ${upsellHtml}
+  `;
 
   const totalEl = document.getElementById('cart-total-price');
   if (totalEl) totalEl.textContent = formatVND(cart.getTotalPrice());
@@ -659,6 +804,32 @@ function openQuickView(productId) {
 function closeQuickView() {
   const modal = document.getElementById('quickview-modal');
   if (modal) modal.classList.add('hidden');
+}
+
+// Delivery Time Preset Handler (Today / Tomorrow)
+function setDeliveryPreset(type) {
+  const dateInput = document.getElementById('cust-date');
+  const noteInput = document.getElementById('cust-note');
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+
+  if (type === 'today') {
+    now.setHours(now.getHours() + 2);
+    const dateStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    if (dateInput) dateInput.value = dateStr;
+    if (noteInput && !noteInput.value.includes('Giao gấp')) {
+      noteInput.value = `[Giao gấp trong hôm nay] ${noteInput.value}`.trim();
+    }
+    showToast("Đã chọn: Giao gấp trong hôm nay! ⚡", "info");
+  } else if (type === 'tomorrow') {
+    now.setDate(now.getDate() + 1);
+    const dateStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T14:00`;
+    if (dateInput) dateInput.value = dateStr;
+    if (noteInput && !noteInput.value.includes('Đặt trước')) {
+      noteInput.value = `[Đặt trước cho ngày mai 14:00] ${noteInput.value}`.trim();
+    }
+    showToast("Đã chọn: Đặt trước ngày mai (14:00)! 🎂", "info");
+  }
 }
 
 // Checkout Modal
