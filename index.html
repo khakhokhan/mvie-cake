@@ -103,6 +103,10 @@
           <img src="assets/icons/heart.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
           <span>Về Gian Bếp</span>
         </a>
+        <a href="#map" class="liquid-glass-pill group bg-amber-50/70 border border-amber-200/60 hover:bg-amber-100">
+          <img src="assets/icons/marker.png" class="w-3.5 h-3.5 object-contain" alt="">
+          <span class="font-bold text-amber-950">Bản Đồ</span>
+        </a>
       </nav>
 
       <!-- Right Action Cluster -->
@@ -197,9 +201,12 @@
         <img src="assets/icons/star.png" class="w-4 h-4 object-contain" alt="">
         <span>Cảm Nhận Khách Hàng</span>
       </a>
-      <a href="#contact" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
-        <img src="assets/icons/marker.png" class="w-4 h-4 object-contain" alt="">
-        <span>Địa Chỉ & Liên Hệ</span>
+      <a href="#map" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#1E1612] bg-[#FEF08A]/40 border border-[#FEF08A] hover:bg-[#FEF08A]/60 transition-all font-bold text-xs">
+        <div class="flex items-center gap-3">
+          <img src="assets/icons/marker.png" class="w-4 h-4 object-contain" alt="">
+          <span>Bản Đồ & Vị Trí Tiệm M'Vie</span>
+        </div>
+        <span class="text-[10px] bg-[#FEF08A] text-amber-950 px-2 py-0.5 rounded-full font-bold shadow-2xs">Google Maps</span>
       </a>
 
       <!-- Quick Action Row at bottom of mobile sheet -->
@@ -302,6 +309,15 @@
             >
               <img src="assets/icons/sparkling.png" class="w-4 h-4 object-contain group-hover:rotate-12 transition-transform opacity-90" alt="">
               <span id="hero-cta-secondary">Đặt Bánh Sinh Nhật Custom</span>
+            </a>
+
+            <!-- Tertiary CTA: Direct Google Map Shortcut Button -->
+            <a 
+              href="#map"
+              class="relative inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-amber-50/90 hover:bg-amber-100 text-amber-950 text-xs uppercase tracking-[0.14em] font-bold shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-amber-200/80 group"
+            >
+              <img src="assets/icons/marker.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="">
+              <span>Xem Bản Đồ 📍</span>
             </a>
           </div>
 
@@ -1191,21 +1207,22 @@
     </div>
   </section>
 
-  <!-- Section 6: Contact & Location -->
-  <section id="contact" class="py-20 lg:py-32 bg-[#FAF8F5] border-t border-stone-100">
+  <!-- Section 6: Official Google Map & Location Contact -->
+  <section id="map" class="py-20 lg:py-32 bg-[#FAF8F5] border-t border-stone-100 scroll-mt-24">
+    <div id="contact"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         <div class="lg:col-span-6 space-y-6">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
-            THÔNG TIN TIỆM BÁNH
+            VỊ TRÍ & BẢN ĐỒ CHÍNH THỨC
           </span>
           <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
-            Liên Hệ Đặt Bánh Cùng M’Vie Cake
+            Bản Đồ Đến Tiệm M’Vie Cake
           </h2>
           <p class="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
-            Tiệm luôn sẵn sàng phục vụ các món bánh tráng miệng tươi ngon mỗi ngày. Bạn nhớ đặt trước 1-2 ngày đối với bánh sinh nhật nhé!
+            M'Vie Cake tọa lạc tại An Thạnh 73, Thuận An, Bình Dương. Tiệm phục vụ khách lấy bánh trực tiếp và nhận giao hàng hỏa tốc mát lạnh tận nơi khu vực Thuận An, Dĩ An, Thủ Dầu Một & TP.HCM.
           </p>
 
           <div class="space-y-4">
@@ -1289,7 +1306,7 @@
             </div>
 
             <!-- Official Google Maps Iframe -->
-            <div class="w-full h-72 sm:h-80 rounded-2xl overflow-hidden shadow-inner border border-stone-200/90 relative">
+            <div class="w-full h-80 sm:h-96 lg:h-[420px] rounded-2xl overflow-hidden shadow-inner border border-stone-200/90 relative">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2568.1132289326024!2d106.69651170981918!3d10.9481456260313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7005a9e705f%3A0x64087ad7c83fc554!2sM'Vie%20Cake!5e1!3m2!1svi!2s!4v1792040624750!5m2!1svi!2s" 
                 width="100%" 
@@ -1393,6 +1410,19 @@
 
   <!-- Floating Multi-Channel Action Dock (Luxury Speed-Dial) -->
   <div class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3">
+    <!-- Map Quick View Button -->
+    <a 
+      href="#map" 
+      class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-amber-600 shadow-xl hover:scale-110 hover:shadow-2xl transition-all flex items-center justify-center border border-amber-200/60 group relative"
+      title="Xem bản đồ tiệm bánh"
+      aria-label="Xem bản đồ tiệm bánh"
+    >
+      <img src="assets/icons/marker.png" class="w-5 h-5 object-contain group-hover:scale-110 transition-transform" alt="Bản đồ">
+      <span class="absolute right-full mr-2.5 px-2.5 py-1 rounded-lg bg-[#1E1612] text-white text-[11px] font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md hidden sm:block">
+        📍 Bản đồ chỉ đường
+      </span>
+    </a>
+
     <!-- Hotline Call Button -->
     <a 
       href="tel:0909xxxxxx" 
