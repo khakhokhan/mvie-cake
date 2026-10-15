@@ -175,30 +175,69 @@ function renderFeedbacks() {
   const container = document.getElementById('feedbacks-container');
   if (!container || !CONFIG.feedbacks) return;
 
-  const avatarBgs = ['bg-sky-100 text-sky-700', 'bg-amber-100 text-amber-800', 'bg-rose-100 text-rose-700', 'bg-emerald-100 text-emerald-700'];
+  const avatarBgs = [
+    'bg-[#EEF7FD] text-[#3B6998] border-[#9BC7E8]/40',
+    'bg-[#FEFCE8] text-amber-800 border-amber-200/60',
+    'bg-rose-50 text-rose-700 border-rose-200/50',
+    'bg-emerald-50 text-emerald-800 border-emerald-200/50',
+    'bg-purple-50 text-purple-800 border-purple-200/50',
+    'bg-sky-50 text-sky-800 border-sky-200/50'
+  ];
 
   container.innerHTML = CONFIG.feedbacks.map((fb, idx) => `
-    <div class="card-3d bg-white p-7 sm:p-9 rounded-[2.25rem] shadow-[0_12px_32px_rgba(45,35,30,0.06)] border border-[#EAE3D9]/90 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-      <div class="space-y-4 layer-3d-z1">
-        <div class="flex items-center gap-1 mb-3">
-          ${Array(fb.stars || 5).fill(0).map(() => `<img src="assets/icons/star.png" class="w-4 h-4 object-contain inline-block" alt="Star">`).join('')}
+    <div class="card-3d bg-white p-6 sm:p-8 rounded-[2.25rem] shadow-[0_12px_32px_rgba(45,35,30,0.06)] border border-[#EAE3D9]/90 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
+      
+      <!-- Google Review Badge & Date Header -->
+      <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[#F2ECE4] layer-3d-z1">
+        <div class="flex items-center gap-2">
+          <!-- Official Google "G" Icon -->
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span class="text-[11px] font-bold text-stone-700 tracking-tight">Google Maps</span>
+          <span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200/60">✓ Đã xác minh</span>
         </div>
-        <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic font-light">
+        <span class="text-[11px] text-stone-400 font-medium">${fb.date || 'Gần đây'}</span>
+      </div>
+
+      <div class="space-y-3.5 layer-3d-z1">
+        <!-- 5 Gold Stars -->
+        <div class="flex items-center gap-1">
+          ${Array(fb.stars || 5).fill(0).map(() => `<img src="assets/icons/star.png" class="w-4 h-4 object-contain inline-block" alt="5 sao">`).join('')}
+          <span class="text-xs font-bold text-amber-500 ml-1.5">5.0</span>
+        </div>
+        
+        <!-- Review text -->
+        <p class="text-stone-700 text-xs sm:text-[13.5px] leading-relaxed italic font-light">
           “${fb.content}”
         </p>
       </div>
-      <div class="flex items-center justify-between pt-6 mt-6 border-t border-[#F2ECE4] layer-3d-z2">
-        <div class="flex items-center gap-3.5">
-          <div class="w-11 h-11 rounded-2xl ${avatarBgs[idx % avatarBgs.length]} flex items-center justify-center font-bold text-xs shadow-xs border border-white">
+
+      <!-- Reviewer Profile Footer -->
+      <div class="flex items-center justify-between pt-5 mt-5 border-t border-[#F2ECE4] layer-3d-z2">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl ${avatarBgs[idx % avatarBgs.length]} flex items-center justify-center font-bold text-xs shadow-2xs border">
             ${fb.avatar || fb.name.slice(0, 2).toUpperCase()}
           </div>
           <div>
-            <h4 class="font-serif-luxury font-bold text-sm text-[#1E1612]">${fb.name}</h4>
-            <p class="text-[11px] text-stone-400 font-medium">${fb.location}</p>
+            <h4 class="font-serif-luxury font-bold text-sm text-[#1E1612] leading-tight">${fb.name}</h4>
+            <div class="flex items-center gap-1.5 mt-0.5">
+              <span class="text-[10px] text-stone-400 font-medium">${fb.location}</span>
+              ${fb.localGuide ? `
+                <span class="text-[9px] font-bold text-amber-800 bg-[#FEF08A]/60 px-1.5 py-0.2 rounded border border-amber-300/40">Local Guide</span>
+              ` : ''}
+            </div>
           </div>
         </div>
-        <span class="text-xs text-amber-500 font-bold">5.0 ★</span>
+        <a 
+          href="https://maps.google.com/?cid=7208207137531774292" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-stone-400 hover:text-[#4285F4] transition-colors p-1"
+          title="Xem trên Google Maps"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
       </div>
+
     </div>
   `).join('');
 

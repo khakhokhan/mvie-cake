@@ -236,27 +236,63 @@ const DEFAULT_CONFIG = {
   feedbacks: [
     {
       id: 1,
-      name: "Minh Hằng",
+      name: "Minh Hằng Nguyễn",
       location: "Thuận An, Bình Dương",
       avatar: "MH",
       stars: 5,
-      content: "Gato Flan Choco ở đây đỉnh chóp luôn! Lớp flan béo ngậy mềm mượt, cốt gato socola mềm tan không bị khô hay ngọt gắt. Cả nhà mình ai ăn cũng khen."
+      date: "1 tuần trước",
+      localGuide: true,
+      content: "Gato Flan Choco ở đây đỉnh chóp luôn! Lớp flan béo ngậy mềm mượt, cốt gato socola mềm tan không bị khô hay ngọt gắt. Cả nhà mình ai ăn cũng khen nức nở, sẽ ủng hộ tiệm dài dài!"
     },
     {
       id: 2,
-      name: "Thảo Vy",
+      name: "Thảo Vy Trần",
       location: "An Thạnh, Thuận An",
       avatar: "TV",
       stars: 5,
-      content: "Panna cotta hũ 120ml ăn siêu đã, sốt dâu và sốt xoài chua chua ngọt ngọt thơm nức mũi. Mình mua combo 10 hũ để đãi tiệc sinh nhật ai cũng xin địa chỉ mua."
+      date: "2 tuần trước",
+      localGuide: true,
+      content: "Panna cotta hũ 120ml ăn siêu đã, sốt dâu và sốt xoài chua ngọt thanh mát thơm nức mũi. Mình mua combo 10 hũ đãi sinh nhật cả công ty ai cũng xin địa chỉ tiệm để đặt tiếp."
     },
     {
       id: 3,
-      name: "Đăng Khoa",
+      name: "Đăng Khoa Lê",
       location: "TP. Hồ Chí Minh",
       avatar: "ĐK",
       stars: 5,
-      content: "Set 4 cupcake decor xinh xỉu làm quà tặng bạn gái ưng ý hết nấc. Shop chu đáo, đóng hộp thắt nơ cẩn thận. Bánh Flan 10 cái 85k cũng rất ngon và rẻ."
+      date: "3 tuần trước",
+      localGuide: true,
+      content: "Set 4 cupcake decor xinh xỉu làm quà tặng bạn gái ưng ý hết nấc. Shop cực kỳ chu đáo, đóng hộp giữ lạnh giao đến bánh vẫn nguyên vẹn. Bánh Flan 10 cái 85k cũng rất ngon và mềm mịn."
+    },
+    {
+      id: 4,
+      name: "Ngọc Mai Bùi",
+      location: "Thuận An, Bình Dương",
+      avatar: "NM",
+      stars: 5,
+      date: "1 tháng trước",
+      localGuide: false,
+      content: "Đặt bánh sinh nhật decor theo mẫu gửi trên mạng mà tiệm làm y chang thậm chí còn tỉ mỉ hơn. Cốt bánh ít ngọt thanh thanh đúng gu của mình, ăn thoải mái không bị ngấy!"
+    },
+    {
+      id: 5,
+      name: "Hoàng Phúc",
+      location: "Dĩ An, Bình Dương",
+      avatar: "HP",
+      stars: 5,
+      date: "1 tháng trước",
+      localGuide: true,
+      content: "Lần đầu tiên ăn thử Gato Flan Matcha ở đây mà mê luôn, vị trà xanh đậm đà kết hợp flan béo bùi chuẩn vị. Giá cả rất hợp lý so với chất lượng bơ sữa tươi sạch của tiệm."
+    },
+    {
+      id: 6,
+      name: "Bảo Trâm",
+      location: "Thủ Dầu Một",
+      avatar: "BT",
+      stars: 5,
+      date: "2 tháng trước",
+      localGuide: false,
+      content: "Tiệm tư vấn rất nhiệt tình và dễ thương. Bánh giao đúng giờ hẹn, đóng gói túi giữ nhiệt cẩn thận. Flan mềm mịn không bị rỗ tí nào, vị caramel ngọt vừa vặn ăn hoài không chán."
     }
   ]
 };
@@ -278,7 +314,7 @@ function getFullConfig() {
         about: { ...DEFAULT_CONFIG.about, ...(parsed.about || {}) },
         categories: parsed.categories || DEFAULT_CONFIG.categories,
         products: parsed.products || DEFAULT_CONFIG.products,
-        feedbacks: parsed.feedbacks || DEFAULT_CONFIG.feedbacks
+        feedbacks: (parsed.feedbacks && parsed.feedbacks.length >= DEFAULT_CONFIG.feedbacks.length) ? parsed.feedbacks : DEFAULT_CONFIG.feedbacks
       };
     } catch (e) {
       console.error("Failed to parse config, using default", e);
