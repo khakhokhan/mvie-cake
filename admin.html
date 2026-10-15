@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M’Vie Cake CMS - Trung Tâm Quản Trị & Tùy Chỉnh Toàn Diện</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mvie-blue': '#9BC7E8',
+            'mvie-blue-hover': '#82b9df',
+            'mvie-blue-light': '#EEF7FD',
+            'mvie-blue-soft': '#D7ECFB',
+            'mvie-yellow': '#FEF08A',
+            'mvie-choco': '#2D231E',
+            'mvie-cream': '#FCFBF7',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-stone-100 text-mvie-choco antialiased">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <img id="admin-header-logo" src="assets/logo.jpg" alt="Logo" class="w-10 h-10 rounded-xl object-cover border border-stone-200">
+        <div>
+          <h1 class="font-bold text-base text-mvie-choco flex items-center gap-2">
+            <span id="admin-header-store-name">M’Vie Cake</span>
+            <span class="text-[10px] bg-[#FEF08A] text-amber-900 px-2 py-0.5 rounded-full font-bold">Pro CMS</span>
+          </h1>
+          <p class="text-[11px] text-stone-400">Tùy biến tiêu đề, ảnh, giá & nội dung toàn diện</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button 
+          onclick="saveAllChangesToStorage()" 
+          class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 group"
+        >
+          <img src="assets/icons/checkmark.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="">
+          <span>Lưu Thay Đổi</span>
+        </button>
+        <a 
+          href="index.html" 
+          target="_blank"
+          class="px-4 py-2 rounded-xl bg-mvie-blue hover:bg-mvie-blue-hover text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 group"
+        >
+          <img src="assets/icons/sparkling.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="">
+          <span>Xem Website</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- Navigation Tabs Navigation Bar -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 border-b border-stone-200 no-scrollbar">
+      <button onclick="switchTab('hero')" id="tab-btn-hero" class="admin-tab-btn active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#9BC7E8] text-white shadow-sm transition-all shrink-0 flex items-center gap-2">
+        <img src="assets/icons/home.png" class="w-4 h-4 object-contain" alt="">
+        <span>Tiêu Đề & Hero</span>
+      </button>
+      <button onclick="switchTab('products')" id="tab-btn-products" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/cake.png" class="w-4 h-4 object-contain" alt="">
+        <span>Quản Lý Bánh & Giá</span>
+      </button>
+      <button onclick="switchTab('categories')" id="tab-btn-categories" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/tag.png" class="w-4 h-4 object-contain" alt="">
+        <span>Danh Mục Bánh</span>
+      </button>
+      <button onclick="switchTab('about')" id="tab-btn-about" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/chat.png" class="w-4 h-4 object-contain" alt="">
+        <span>Giới Thiệu & Đánh Giá</span>
+      </button>
+      <button onclick="switchTab('store')" id="tab-btn-store" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/settings.png" class="w-4 h-4 object-contain" alt="">
+        <span>Thông Tin Tiệm</span>
+      </button>
+      <button onclick="switchTab('theme')" id="tab-btn-theme" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/color-palette.png" class="w-4 h-4 object-contain" alt="">
+        <span>Màu Sắc & 3D</span>
+      </button>
+      <button onclick="switchTab('orders')" id="tab-btn-orders" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 relative flex items-center gap-2">
+        <img src="assets/icons/shopping-bag.png" class="w-4 h-4 object-contain" alt="">
+        <span>Đơn Hàng</span>
+        <span id="admin-orders-badge" class="ml-1 px-1.5 py-0.5 rounded-full bg-rose-500 text-white text-[10px] hidden">0</span>
+      </button>
+      <button onclick="switchTab('backup')" id="tab-btn-backup" class="admin-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-stone-600 hover:bg-stone-50 transition-all border border-stone-200 shrink-0 flex items-center gap-2">
+        <img src="assets/icons/database.png" class="w-4 h-4 object-contain" alt="">
+        <span>Sao Lưu & Reset</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: HERO & TITLES (TIÊU ĐỀ & BANNER) -->
+    <section id="tab-hero" class="tab-content space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-8 max-w-4xl mx-auto">
+        
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco">1. Tiêu Đề Website & Thanh Thông Báo</h2>
+          <p class="text-xs text-stone-500">Tùy biến tên hiển thị trên thanh tab trình duyệt và thông báo chạy trên cùng.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tiêu đề trên Tab Trình Duyệt (Browser Title)</label>
+            <input type="text" id="site-browserTitle" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Thông Báo Trên Cùng (Dòng 1)</label>
+            <input type="text" id="site-topAnnouncement" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Thông Báo Phụ (Dòng 2)</label>
+            <input type="text" id="site-announcementSub" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-stone-100">
+          <h2 class="font-bold text-lg text-mvie-choco mb-2">2. Tiêu Đề & Lời Dẫn Banner Hero</h2>
+          <p class="text-xs text-stone-500 mb-4">Các dòng chữ lớn mở đầu trang chủ để gây ấn tượng với khách hàng.</p>
+          
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Huy hiệu nhỏ phía trên tiêu đề</label>
+              <input type="text" id="hero-badge" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tiêu đề lớn - Dòng 1</label>
+                <input type="text" id="hero-titleLine1" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1">Chữ Highlight (Màu xanh/gạch vàng)</label>
+                <input type="text" id="hero-titleHighlight" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-amber-50 font-bold">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tiêu đề lớn - Dòng 2</label>
+                <input type="text" id="hero-titleLine2" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Đoạn Văn Giới Thiệu (Subtitle)</label>
+              <textarea id="hero-subtitle" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Main Cover Image -->
+        <div class="pt-6 border-t border-stone-100">
+          <h2 class="font-bold text-lg text-mvie-choco mb-2">3. Ảnh Bìa Hero Nổi Bật (Bên Phải Banner)</h2>
+          <p class="text-xs text-stone-500 mb-4">Thay đổi hình ảnh chiếc bánh lớn được trưng bày ngay đầu trang web.</p>
+
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-36 h-44 rounded-2xl overflow-hidden border-2 border-white shadow-md shrink-0 bg-stone-200">
+              <img id="hero-img-preview" src="assets/gato-flan-choco.jpg" alt="Hero Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-3 flex-1 w-full">
+              <div class="flex flex-wrap gap-2">
+                <label class="cursor-pointer px-4 py-2 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm">
+                  <span>Tải ảnh bìa mới từ máy</span>
+                  <input type="file" accept="image/*" class="sr-only" onchange="handleHeroImageUpload(this)">
+                </label>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div>
+                  <label class="block text-[11px] font-bold text-stone-600">Tag trên ảnh</label>
+                  <input type="text" id="hero-imgBadge" class="w-full px-2.5 py-1.5 rounded-lg border border-stone-200 text-xs bg-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-stone-600">Tiêu đề bánh trên ảnh</label>
+                  <input type="text" id="hero-imgTitle" class="w-full px-2.5 py-1.5 rounded-lg border border-stone-200 text-xs bg-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-stone-600">Mô tả giá trên ảnh</label>
+                  <input type="text" id="hero-imgSub" class="w-full px-2.5 py-1.5 rounded-lg border border-stone-200 text-xs bg-white">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policy Note Box -->
+        <div class="pt-6 border-t border-stone-100">
+          <h2 class="font-bold text-lg text-mvie-choco mb-2">4. Khung Lưu Ý Đặt Bánh (Policy Note)</h2>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tiêu đề lưu ý</label>
+              <input type="text" id="hero-policyTitle" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Nội dung lưu ý (Hỗ trợ HTML)</label>
+              <textarea id="hero-policyNote" rows="2" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-100 flex justify-end">
+          <button onclick="saveHeroSettings()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition-all">
+            💾 Lưu Mục Banner Hero
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 2: PRODUCTS & BULK PRICING -->
+    <section id="tab-products" class="tab-content hidden space-y-6">
+      
+      <!-- Action Control Toolbar -->
+      <div class="bg-white p-4 sm:p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h2 class="font-bold text-lg text-mvie-choco">Danh Sách Bánh & Bảng Giá</h2>
+            <p class="text-xs text-stone-500">Thêm bánh mới, sửa ảnh trực tiếp, cập nhật giá từng phân loại hoặc bật tắt trạng thái còn/hết hàng.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button 
+              onclick="openNewProductModal()"
+              class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 group"
+            >
+              <img src="assets/icons/cake.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="">
+              <span>+ Thêm Bánh Mới</span>
+            </button>
+            <button 
+              onclick="openBulkPriceModal()"
+              class="px-3.5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 group"
+            >
+              <img src="assets/icons/price-tag.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="">
+              <span>Đổi Giá Hàng Loạt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-2 border-t border-stone-100">
+          <div class="flex-1">
+            <input 
+              type="text" 
+              id="admin-search-input" 
+              placeholder="🔍 Tìm kiếm theo tên bánh..." 
+              oninput="filterAdminProductsList()"
+              class="w-full px-3.5 py-2 text-xs rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#9BC7E8]"
+            >
+          </div>
+          <div>
+            <select 
+              id="admin-category-filter" 
+              onchange="filterAdminProductsList()"
+              class="w-full sm:w-48 px-3 py-2 text-xs rounded-xl border border-stone-200 bg-white focus:outline-none"
+            >
+              <option value="all">Tất cả danh mục</option>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="admin-products-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered by admin.js -->
+      </div>
+
+    </section>
+
+    <!-- TAB 3: CATEGORIES MANAGER -->
+    <section id="tab-categories" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm max-w-2xl mx-auto space-y-6">
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco">Quản Lý Danh Mục Bánh</h2>
+          <p class="text-xs text-stone-500">Thêm danh mục mới (ví dụ: Bánh Mì, Trà Sữa...), sửa tên hoặc xóa danh mục.</p>
+        </div>
+
+        <div class="flex gap-2">
+          <input 
+            type="text" 
+            id="new-cat-name" 
+            placeholder="Tên danh mục mới (kèm emoji nếu thích, VD: 🥪 Bánh Mì Sandwich)" 
+            class="flex-1 px-3.5 py-2 text-xs rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none"
+          >
+          <button 
+            onclick="addNewCategory()" 
+            class="px-4 py-2 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm"
+          >
+            + Thêm Danh Mục
+          </button>
+        </div>
+
+        <div id="admin-categories-list" class="space-y-2">
+          <!-- Rendered by admin.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: ABOUT & REVIEWS (GIỚI THIỆU & ĐÁNH GIÁ) -->
+    <section id="tab-about" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm max-w-4xl mx-auto space-y-8">
+        
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco">1. Phần Giới Thiệu & Câu Chuyện Tiệm</h2>
+          <p class="text-xs text-stone-500">Chỉnh sửa thông điệp về chất lượng và hình ảnh quy trình nướng bánh.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tiêu Đề Mục Giới Thiệu</label>
+            <input type="text" id="about-title" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Huy Hiệu Nhỏ (Badge)</label>
+            <input type="text" id="about-badge" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Đoạn Văn Giới Thiệu Câu Chuyện</label>
+            <textarea id="about-desc" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50"></textarea>
+          </div>
+        </div>
+
+        <!-- About Process Image -->
+        <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row items-center gap-6">
+          <div class="w-40 h-28 rounded-2xl overflow-hidden border border-stone-300 bg-white shrink-0">
+            <img id="about-img-preview" src="assets/baking-process.jpg" alt="About preview" class="w-full h-full object-cover">
+          </div>
+          <div class="space-y-2 flex-1 text-center sm:text-left">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider">Ảnh Quy Trình Làm Bánh</label>
+            <label class="cursor-pointer inline-block px-4 py-2 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm">
+              <span>Tải ảnh mới từ máy</span>
+              <input type="file" accept="image/*" class="sr-only" onchange="handleAboutImageUpload(this)">
+            </label>
+          </div>
+        </div>
+
+        <!-- 4 Core Commitments -->
+        <div class="pt-6 border-t border-stone-100">
+          <h2 class="font-bold text-lg text-mvie-choco mb-2">2. Bốn Cam Kết Chất Lượng Cốt Lõi</h2>
+          <div id="about-features-editor" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+
+        <!-- Reviews / Feedbacks Manager -->
+        <div class="pt-6 border-t border-stone-100">
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <h2 class="font-bold text-lg text-mvie-choco">3. Đánh Giá Của Khách Hàng (Testimonials)</h2>
+              <p class="text-xs text-stone-500">Chỉnh sửa hoặc thêm đánh giá 5 sao từ khách hàng yêu quý.</p>
+            </div>
+            <button onclick="addNewFeedbackRow()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm">
+              + Thêm Đánh Giá
+            </button>
+          </div>
+          <div id="feedbacks-editor" class="space-y-3">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-100 flex justify-end">
+          <button onclick="saveAboutAndReviews()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition-all">
+            💾 Lưu Giới Thiệu & Đánh Giá
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 5: STORE & LOGO -->
+    <section id="tab-store" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm max-w-3xl mx-auto space-y-6">
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco">Thông Tin Tiệm Bánh & Logo</h2>
+          <p class="text-xs text-stone-500">Cập nhật số điện thoại, địa chỉ, logo và link kết nối mạng xã hội.</p>
+        </div>
+
+        <!-- Logo Uploader -->
+        <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row items-center gap-6">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden border-2 border-[#9BC7E8] bg-white shrink-0 shadow-sm">
+            <img id="store-logo-preview" src="assets/logo.jpg" alt="Logo preview" class="w-full h-full object-cover">
+          </div>
+          <div class="space-y-2 flex-1 text-center sm:text-left">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider">Logo Tiệm Bánh</label>
+            <p class="text-[11px] text-stone-500">Tải ảnh đại diện/logo từ máy tính của bạn.</p>
+            <div class="flex flex-wrap gap-2 justify-center sm:justify-start pt-1">
+              <label class="cursor-pointer px-4 py-2 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm">
+                <span>Tải ảnh mới từ máy</span>
+                <input type="file" accept="image/*" class="sr-only" onchange="handleStoreLogoUpload(this)">
+              </label>
+              <button type="button" onclick="resetDefaultStoreLogo()" class="px-3 py-2 bg-white border border-stone-200 text-stone-600 rounded-xl text-xs font-bold hover:bg-stone-50">
+                Dùng logo cún mặc định
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Tên Tiệm</label>
+            <input type="text" id="store-name" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Hotline / Zalo</label>
+            <input type="text" id="store-hotline" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Địa Chỉ Tiệm</label>
+            <input type="text" id="store-address" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Link Fanpage Facebook</label>
+            <input type="url" id="store-facebookUrl" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Link Messenger Đặt Hàng</label>
+            <input type="url" id="store-messengerUrl" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Giờ Hoạt Động & Giao Bánh</label>
+            <input type="text" id="store-workingHours" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] bg-stone-50">
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-100 flex justify-end">
+          <button onclick="saveStoreProfile()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition-all">
+            💾 Lưu Thông Tin Tiệm
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: ORDERS (ĐƠN HÀNG) -->
+    <section id="tab-orders" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco">Danh Sách Đơn Đặt Hàng</h2>
+          <p class="text-xs text-stone-500">Các đơn khách vừa điền form gửi qua Fanpage.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="exportOrdersToCSV()" class="px-3.5 py-1.5 bg-[#9BC7E8] text-white hover:bg-[#82b9df] rounded-xl text-xs font-bold shadow-sm inline-flex items-center gap-1.5">
+            <img src="assets/icons/excel.png" alt="Excel" class="w-4 h-4 object-contain">
+            Xuất Excel/CSV
+          </button>
+          <button onclick="clearOrdersHistory()" class="px-3 py-1.5 bg-stone-100 hover:bg-rose-50 text-stone-600 hover:text-rose-600 rounded-xl text-xs font-bold">
+            Xóa lịch sử
+          </button>
+        </div>
+      </div>
+
+      <div id="admin-orders-list" class="space-y-4">
+        <!-- Rendered by admin.js -->
+      </div>
+    </section>
+
+    <!-- TAB: THEME COLORS & 3D DNA CAROUSEL -->
+    <section id="tab-theme" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-8 max-w-4xl mx-auto">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-stone-100 gap-4">
+          <div>
+            <h2 class="font-bold text-lg text-mvie-choco flex items-center gap-2">
+              <img src="assets/icons/color-palette.png" alt="Color Palette" class="w-6 h-6 object-contain">
+              <span>Giao Diện, Bảng Màu & 3D DNA Carousel</span>
+              <span class="text-[10px] bg-mvie-blue-light text-mvie-blue font-bold px-2.5 py-0.5 rounded-full border border-mvie-blue/20">Framer Component</span>
+            </h2>
+            <p class="text-xs text-stone-500 mt-1">
+              Tự do đổi màu sắc toàn website, chọn bảng màu preset 1 chạm và điều chỉnh hiệu ứng chuỗi xoắn 3D DNA.
+            </p>
+          </div>
+          <button 
+            type="button" 
+            onclick="saveThemeSettings()" 
+            class="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all shrink-0 flex items-center gap-2"
+          >
+            <img src="assets/icons/checkmark.png" alt="Save" class="w-4 h-4 object-contain">
+            <span>Lưu Giao Diện & Bảng Màu</span>
+          </button>
+        </div>
+
+        <!-- 1. Presets Palette -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+            1. Bảng Màu Gợi Ý Sẵn (Click Để Áp Dụng Ngay)
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            
+            <button 
+              type="button" 
+              onclick="applyThemePreset('mvie_default')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-mvie-blue bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#9BC7E8] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FEF08A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FCFBF7] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-mvie-blue">M'Vie Chuẩn (Baby Blue)</p>
+              <p class="text-[10px] text-stone-400">Tone Xanh Pastel & Bơ Vàng ngọt dịu</p>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="applyThemePreset('strawberry_pink')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-rose-400 bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#F472B6] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FEF08A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FFF5F7] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-rose-500">Dâu Tây Pastel</p>
+              <p class="text-[10px] text-stone-400">Tone Hồng Dâu & Kem béo lãng mạn</p>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="applyThemePreset('matcha_green')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-emerald-400 bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#86EFAC] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FEF08A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#F7FAF7] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-emerald-600">Matcha Mori</p>
+              <p class="text-[10px] text-stone-400">Tone Trà Xanh thanh mát tự nhiên</p>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="applyThemePreset('choco_caramel')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-amber-500 bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#D97706] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FDE68A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FDF8F3] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-amber-600">Caramel & Choco</p>
+              <p class="text-[10px] text-stone-400">Tone Cà Phê & Bánh nướng cổ điển</p>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="applyThemePreset('lavender_purple')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-purple-400 bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#C084FC] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FEF08A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FAF7FD] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-purple-600">Lavender Mộng Mơ</p>
+              <p class="text-[10px] text-stone-400">Tone Tím Pastel mộng mị, đáng yêu</p>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="applyThemePreset('warm_latte')" 
+              class="p-3.5 rounded-2xl border border-stone-200 hover:border-stone-400 bg-stone-50 text-left transition-all group"
+            >
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="w-4 h-4 rounded-full bg-[#B45309] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#FEF08A] border border-white shadow-sm inline-block"></span>
+                <span class="w-4 h-4 rounded-full bg-[#F5F5F4] border border-stone-300 shadow-sm inline-block"></span>
+              </div>
+              <p class="text-xs font-bold text-stone-800 group-hover:text-amber-700">Latte & Vanilla</p>
+              <p class="text-[10px] text-stone-400">Tone Nâu Nhạt tối giản ấm cúng</p>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- 2. Detailed Color Pickers -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-3">
+            2. Tinh Chỉnh Từng Màu Sắc Chi Tiết
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            
+            <!-- Primary Color -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Chủ Đạo (Primary):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-primaryColor" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-primaryColor', 'theme-primaryColor-hex')">
+                <input type="text" id="theme-primaryColor-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-primaryColor-hex', 'theme-primaryColor')">
+              </div>
+              <p class="text-[10px] text-stone-400">Dùng cho nút bấm, badge, icon chính</p>
+            </div>
+
+            <!-- Primary Hover -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Hover Nút Bấm:</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-primaryHover" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-primaryHover', 'theme-primaryHover-hex')">
+                <input type="text" id="theme-primaryHover-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-primaryHover-hex', 'theme-primaryHover')">
+              </div>
+              <p class="text-[10px] text-stone-400">Màu khi rê chuột vào nút chính</p>
+            </div>
+
+            <!-- Accent Yellow -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Vàng Nhấn (Accent Yellow):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-accentYellow" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-accentYellow', 'theme-accentYellow-hex')">
+                <input type="text" id="theme-accentYellow-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-accentYellow-hex', 'theme-accentYellow')">
+              </div>
+              <p class="text-[10px] text-stone-400">Dùng cho nhãn "Món Tủ Signature", sao đánh giá</p>
+            </div>
+
+            <!-- Accent Pink -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Hồng Nhấn (Accent Pink):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-accentPink" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-accentPink', 'theme-accentPink-hex')">
+                <input type="text" id="theme-accentPink-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-accentPink-hex', 'theme-accentPink')">
+              </div>
+              <p class="text-[10px] text-stone-400">Dùng cho giỏ hàng, thông báo hot</p>
+            </div>
+
+            <!-- Background Color -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Nền Trang (Background):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-backgroundColor" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-backgroundColor', 'theme-backgroundColor-hex')">
+                <input type="text" id="theme-backgroundColor-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-backgroundColor-hex', 'theme-backgroundColor')">
+              </div>
+              <p class="text-[10px] text-stone-400">Màu nền dịu của toàn bộ website</p>
+            </div>
+
+            <!-- Text Color -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Chữ Đậm (Text Color):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-textColor" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-textColor', 'theme-textColor-hex')">
+                <input type="text" id="theme-textColor-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-textColor-hex', 'theme-textColor')">
+              </div>
+              <p class="text-[10px] text-stone-400">Màu chữ tiêu đề và nội dung chính</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Live Color Preview Box -->
+        <div class="p-5 rounded-2xl border border-stone-200 bg-stone-50 space-y-3">
+          <label class="flex items-center gap-2 text-xs font-bold text-stone-700 uppercase tracking-wider">
+            <img src="assets/icons/view.png" alt="Live Preview" class="w-4 h-4 object-contain">
+            <span>Xem Thử Trực Tiếp (Live Preview)</span>
+          </label>
+          <div id="theme-preview-box" class="p-6 rounded-2xl transition-colors border border-stone-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span id="theme-preview-badge" class="px-3 py-1 rounded-full text-xs font-bold inline-block mb-2">
+                Món Tủ Signature
+              </span>
+              <h4 id="theme-preview-title" class="text-lg font-bold">M'Vie Cake - Tiệm Bánh Homemade</h4>
+              <p id="theme-preview-desc" class="text-xs text-stone-500">Màu sắc đang được áp dụng tức thì cho toàn bộ các thành phần.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="theme-preview-btn" class="px-5 py-2.5 rounded-xl text-white text-xs font-bold shadow-md transition-all">
+                Xem Menu & Đặt Bánh
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. DNA Carousel 3D Settings -->
+        <div class="pt-6 border-t border-stone-100 space-y-5">
+          <div>
+            <h3 class="font-bold text-base text-mvie-choco flex items-center gap-2">
+              <img src="assets/icons/3d.png" alt="3D" class="w-5 h-5 object-contain">
+              <span>Cấu Hình Component 3D DNA Carousel</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Framer Port</span>
+            </h3>
+            <p class="text-xs text-stone-500 mt-0.5">
+              Tích hợp component chuỗi xoắn DNA 3D kép chuyển động mượt mà như mẫu Framer (Karim Saif).
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Toggle DNA Carousel -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 flex items-center justify-between">
+              <div>
+                <label for="theme-dnaEnabled" class="block text-xs font-bold text-stone-800 cursor-pointer">Bật Component 3D DNA Carousel</label>
+                <p class="text-[10px] text-stone-500">Hiển thị thanh chuỗi xoắn bánh 3D ngay dưới Hero</p>
+              </div>
+              <input type="checkbox" id="theme-dnaEnabled" checked class="w-5 h-5 rounded text-blue-600 cursor-pointer" onchange="updateThemePreview()">
+            </div>
+
+            <!-- AutoPlay Toggle -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 flex items-center justify-between">
+              <div>
+                <label for="theme-dnaAutoPlay" class="block text-xs font-bold text-stone-800 cursor-pointer">Tự Động Quay Tròn (AutoPlay)</label>
+                <p class="text-[10px] text-stone-500">Bánh tự xoay nhẹ nhàng khi người dùng không tương tác</p>
+              </div>
+              <input type="checkbox" id="theme-dnaAutoPlay" checked class="w-5 h-5 rounded text-blue-600 cursor-pointer">
+            </div>
+          </div>
+
+          <!-- Speed Slider -->
+          <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="theme-dnaSpeed" class="block text-xs font-bold text-stone-800">Tốc Độ Tự Quay:</label>
+              <span id="theme-dnaSpeed-val" class="text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white border border-stone-200 text-blue-600">0.22</span>
+            </div>
+            <input 
+              type="range" 
+              id="theme-dnaSpeed" 
+              min="0.05" 
+              max="0.80" 
+              step="0.01" 
+              value="0.22" 
+              class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#9BC7E8]" 
+              oninput="document.getElementById('theme-dnaSpeed-val').textContent = this.value"
+            >
+            <div class="flex justify-between text-[10px] text-stone-400">
+              <span>Chậm rãi (0.05)</span>
+              <span>Chuẩn mượt mà (0.22)</span>
+              <span>Nhanh (0.80)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Aisol Ripple Dots Interactive Background Settings (Framer Component) -->
+        <div class="pt-6 border-t border-stone-100 space-y-5">
+          <div>
+            <h3 class="font-bold text-base text-mvie-choco flex items-center gap-2">
+              <img src="assets/icons/sparkling.png" alt="Ripple" class="w-5 h-5 object-contain">
+              <span>Nền Tương Tác Aisol Ripple Dots (Framer Component)</span>
+              <span class="text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full">Framer Background</span>
+            </h3>
+            <p class="text-xs text-stone-500 mt-0.5">
+              Hiệu ứng nền lưới chấm tròn tương tác vật lý (Spring Physics) tạo làn sóng phản hồi khi di chuột và chạm/click màn hình.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Toggle Ripple Dots -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 flex items-center justify-between">
+              <div>
+                <label for="theme-rippleDotsEnabled" class="block text-xs font-bold text-stone-800 cursor-pointer">Bật Hiệu Ứng Nền Ripple Dots</label>
+                <p class="text-[10px] text-stone-500">Hiển thị lưới chấm tương tác toàn trang web</p>
+              </div>
+              <input type="checkbox" id="theme-rippleDotsEnabled" checked class="w-5 h-5 rounded text-blue-600 cursor-pointer">
+            </div>
+
+            <!-- Tap Ring Toggle -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 flex items-center justify-between">
+              <div>
+                <label for="theme-rippleDotsTapRing" class="block text-xs font-bold text-stone-800 cursor-pointer">Sóng Chấn Động Khi Click (Tap Ring)</label>
+                <p class="text-[10px] text-stone-500">Tạo vòng sóng lan tỏa 900px/s khi bấm chuột hoặc chạm màn hình</p>
+              </div>
+              <input type="checkbox" id="theme-rippleDotsTapRing" checked class="w-5 h-5 rounded text-blue-600 cursor-pointer">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Background Tone -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Tone Nền (Mặc định Xanh Dương Pastel):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-rippleDotsBg" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-rippleDotsBg', 'theme-rippleDotsBg-hex')">
+                <input type="text" id="theme-rippleDotsBg-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-rippleDotsBg-hex', 'theme-rippleDotsBg')">
+              </div>
+              <p class="text-[10px] text-stone-400">Tone màu nền xanh dương mềm mại (#EEF7FD)</p>
+            </div>
+
+            <!-- Dots Color -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <label class="block text-xs font-bold text-stone-700">Màu Chấm Tròn (Mặc định Vàng Pastel):</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="theme-rippleDotsColor" class="w-10 h-10 rounded-xl cursor-pointer border border-stone-300 p-0.5 bg-white" oninput="syncThemeColorInput('theme-rippleDotsColor', 'theme-rippleDotsColor-hex')">
+                <input type="text" id="theme-rippleDotsColor-hex" class="flex-1 px-3 py-2 text-xs font-mono rounded-xl border border-stone-200 bg-white" oninput="syncThemeHexInput('theme-rippleDotsColor-hex', 'theme-rippleDotsColor')">
+              </div>
+              <p class="text-[10px] text-stone-400">Màu chấm vàng pastel nổi bật và dịu mắt (#FDE047)</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Dot Size Slider -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="theme-rippleDotsSize" class="block text-xs font-bold text-stone-800">Đường Kính Chấm Tròn (Size):</label>
+                <span id="theme-rippleDotsSize-val" class="text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white border border-stone-200 text-blue-600">2.8 px</span>
+              </div>
+              <input 
+                type="range" 
+                id="theme-rippleDotsSize" 
+                min="1.5" 
+                max="5.0" 
+                step="0.1" 
+                value="2.8" 
+                class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#9BC7E8]" 
+                oninput="document.getElementById('theme-rippleDotsSize-val').textContent = this.value + ' px'"
+              >
+            </div>
+
+            <!-- Dot Spacing Slider -->
+            <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="theme-rippleDotsSpacing" class="block text-xs font-bold text-stone-800">Khoảng Cách Giữa Các Chấm (Spacing):</label>
+                <span id="theme-rippleDotsSpacing-val" class="text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white border border-stone-200 text-blue-600">28 px</span>
+              </div>
+              <input 
+                type="range" 
+                id="theme-rippleDotsSpacing" 
+                min="18" 
+                max="45" 
+                step="1" 
+                value="28" 
+                class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#9BC7E8]" 
+                oninput="document.getElementById('theme-rippleDotsSpacing-val').textContent = this.value + ' px'"
+              >
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-stone-100 flex justify-end">
+          <button 
+            type="button" 
+            onclick="saveThemeSettings()" 
+            class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md transition-all flex items-center gap-2"
+          >
+            <img src="assets/icons/checkmark.png" alt="Save" class="w-4 h-4 object-contain">
+            <span>Lưu Toàn Bộ Cài Đặt Giao Diện & Bảng Màu</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 7: BACKUP & RESTORE -->
+    <section id="tab-backup" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm max-w-2xl mx-auto space-y-6">
+        <div>
+          <h2 class="font-bold text-lg text-mvie-choco flex items-center gap-2">
+            <img src="assets/icons/database.png" alt="Backup" class="w-6 h-6 object-contain">
+            <span>Sao Lưu & Khôi Phục Dữ Liệu</span>
+          </h2>
+          <p class="text-xs text-stone-500 mt-1">Tải về toàn bộ cấu hình, hình ảnh và danh mục bạn đã tùy biến.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-mvie-blue-light border border-mvie-blue-soft space-y-3">
+          <h3 class="font-bold text-sm text-mvie-choco flex items-center gap-2">
+            <img src="assets/icons/download.png" alt="Export" class="w-4 h-4 object-contain">
+            <span>1. Xuất Dữ Liệu Toàn Trang (.JSON)</span>
+          </h3>
+          <p class="text-xs text-stone-600">Lưu lại toàn bộ dữ liệu (tất cả tiêu đề, bánh, phân loại, ảnh đã đổi) thành 1 file.</p>
+          <button onclick="exportFullConfigBackup()" class="px-4 py-2 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm inline-flex items-center gap-2">
+            <img src="assets/icons/download.png" alt="Download" class="w-4 h-4 object-contain">
+            <span>Tải File Sao Lưu Toàn Bộ</span>
+          </button>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-3">
+          <h3 class="font-bold text-sm text-amber-900 flex items-center gap-2">
+            <img src="assets/icons/upload.png" alt="Import" class="w-4 h-4 object-contain">
+            <span>2. Nhập Dữ Liệu Từ File (.JSON)</span>
+          </h3>
+          <p class="text-xs text-amber-800">Chọn file sao lưu để nạp lại vào website.</p>
+          <label class="inline-flex items-center gap-2 cursor-pointer px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow-sm">
+            <img src="assets/icons/upload.png" alt="Upload" class="w-4 h-4 object-contain">
+            <span>Chọn File .JSON Để Khôi Phục</span>
+            <input type="file" accept=".json" class="sr-only" onchange="importFullConfigBackup(this)">
+          </label>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 space-y-3">
+          <h3 class="font-bold text-sm text-rose-900 flex items-center gap-2">
+            <img src="assets/icons/restart.png" alt="Reset" class="w-4 h-4 object-contain">
+            <span>3. Đưa Về Cấu Hình Chuẩn Gốc</span>
+          </h3>
+          <p class="text-xs text-rose-800">Xóa mọi tùy chỉnh và đưa website về lại trạng thái chuẩn ban đầu của M'Vie Cake.</p>
+          <button onclick="resetFullConfigToDefault()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-sm inline-flex items-center gap-2">
+            <img src="assets/icons/restart.png" alt="Reset" class="w-4 h-4 object-contain">
+            <span>Khôi Phục Về Mặc Định Ban Đầu</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: ADD / EDIT PRODUCT -->
+  <div id="product-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl p-6 relative max-h-[92vh] overflow-y-auto">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <h3 id="product-modal-title" class="font-bold text-lg text-mvie-choco mb-4">Chỉnh Sửa Món Bánh</h3>
+
+      <form id="product-form" onsubmit="saveProduct(event)" class="space-y-4">
+        <input type="hidden" id="prod-id">
+
+        <!-- Image Upload -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">Hình Ảnh Bánh</label>
+          <div class="flex items-center gap-4">
+            <div class="w-24 h-24 rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 shrink-0">
+              <img id="prod-image-preview" src="assets/logo.jpg" alt="Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-2 flex-1">
+              <label class="cursor-pointer inline-block px-3.5 py-1.5 bg-[#9BC7E8] hover:bg-[#82b9df] text-white rounded-xl text-xs font-bold shadow-sm">
+                <span>Chọn ảnh từ máy / điện thoại</span>
+                <input type="file" accept="image/*" class="sr-only" onchange="handleProductImageUpload(this)">
+              </label>
+              <div>
+                <input type="text" id="prod-image-url" placeholder="Hoặc dán đường dẫn ảnh (URL)..." class="w-full px-3 py-1.5 text-xs rounded-xl border border-stone-200 focus:outline-none" oninput="document.getElementById('prod-image-preview').src = this.value">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Tên Món Bánh *</label>
+          <input type="text" id="prod-name" required placeholder="VD: Gato Flan Socola Dâu..." class="w-full px-3.5 py-2 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Danh Mục *</label>
+            <select id="prod-category" class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none">
+              <!-- Dynamically populated from config.categories -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Huy hiệu (Tag nổi bật)</label>
+            <input type="text" id="prod-badge" placeholder="VD: Best Seller, Món Tủ..." class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Mô Tả Hương Vị & Thành Phần</label>
+          <textarea id="prod-desc" rows="2" placeholder="Cốt bánh xốp mịn, flan mềm ngậy thơm bơ..." class="w-full px-3.5 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Ghi Chú Phụ</label>
+            <input type="text" id="prod-note" placeholder="VD: Vị thanh mát, ít ngọt..." class="w-full px-3.5 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none">
+          </div>
+          <div class="flex items-center gap-2 pt-5">
+            <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-stone-700">
+              <input type="checkbox" id="prod-available" checked class="w-4 h-4 rounded text-blue-600 focus:ring-0">
+              <span>Còn hàng để bán</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Options / Pricing Table Builder -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider">Bảng Giá Phân Loại (Kích cỡ / Combo) *</label>
+            <button type="button" onclick="addOptionRow()" class="text-xs text-blue-600 font-bold hover:underline">+ Thêm dòng giá</button>
+          </div>
+          <div id="prod-options-container" class="space-y-2">
+            <!-- Dynamic option rows -->
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-100 flex justify-end gap-2">
+          <button type="button" onclick="closeProductModal()" class="px-4 py-2 border border-stone-200 text-stone-600 rounded-xl text-xs font-bold">Hủy</button>
+          <button type="submit" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm inline-flex items-center gap-1.5">
+            <img src="assets/icons/checkmark.png" alt="Save" class="w-4 h-4 object-contain">
+            <span>Lưu Món Bánh</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: BULK PRICE ADJUST -->
+  <div id="bulk-price-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl p-6 relative">
+      <button onclick="document.getElementById('bulk-price-modal').classList.add('hidden')" class="absolute top-4 right-4 text-stone-400">✕</button>
+      <h3 class="font-bold text-base text-mvie-choco mb-2">Điều Chỉnh Giá Hàng Loạt</h3>
+      <p class="text-xs text-stone-500 mb-4">Tăng hoặc giảm giá cho tất cả các món bánh trong menu theo số tiền hoặc phần trăm.</p>
+      
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Kiểu điều chỉnh:</label>
+          <select id="bulk-type" class="w-full px-3 py-2 text-xs rounded-xl border border-stone-200">
+            <option value="amount">Cộng/Trừ cố định (VNĐ)</option>
+            <option value="percent">Tăng/Giảm theo tỷ lệ (%)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Giá trị (Ví dụ: +5000 hoặc -5000):</label>
+          <input type="number" id="bulk-value" placeholder="VD: 5000" class="w-full px-3 py-2 text-xs rounded-xl border border-stone-200">
+        </div>
+        <div class="pt-2 flex justify-end gap-2">
+          <button onclick="document.getElementById('bulk-price-modal').classList.add('hidden')" class="px-3 py-2 border border-stone-200 rounded-xl text-xs font-bold">Hủy</button>
+          <button onclick="applyBulkPriceChange()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold inline-flex items-center gap-1.5">
+            <img src="assets/icons/price-tag.png" alt="Price" class="w-4 h-4 object-contain">
+            <span>Áp Dụng Cho Tất Cả</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

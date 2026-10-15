@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M’Vie Cake - Tiệm Gato Flan, Panna Cotta, Cupcake & Bánh Sinh Nhật | Thuận An</title>
+  <meta name="description" content="M'Vie Cake - Chuyên Gato Flan (Choco, Matcha, Full Matcha), Panna Cotta thơm mát, Flan truyền thống, Cupcake và bánh trang trí sinh nhật theo yêu cầu tại An Thạnh 73, Thuận An.">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mvie-blue': '#9BC7E8',
+            'mvie-blue-hover': '#82b9df',
+            'mvie-blue-light': '#EEF7FD',
+            'mvie-blue-soft': '#D7ECFB',
+            'mvie-yellow': '#FEF08A',
+            'mvie-yellow-light': '#FEFCE8',
+            'mvie-pink': '#FDA4AF',
+            'mvie-pink-light': '#FFF1F2',
+            'mvie-choco': '#2D231E',
+            'mvie-choco-light': '#6B5E57',
+            'mvie-cream': '#FCFBF7',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Plus Jakarta Sans (Haute Pâtisserie Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-mvie-cream text-mvie-choco selection:bg-mvie-blue selection:text-white relative min-h-screen">
+
+
+
+  <!-- Top Editorial Announcement Ribbon -->
+  <div class="bg-gradient-to-r from-[#9BC7E8]/10 via-[#FEF08A]/20 to-[#9BC7E8]/10 border-b border-[#EAE3D9]/60 py-1.5 px-4 text-center text-[11px] sm:text-xs font-medium text-[#4A3E39] flex items-center justify-center gap-2 tracking-wide">
+    <span class="inline-flex items-center gap-1.5">
+      <img src="assets/icons/sparkling.png" class="w-3 h-3 object-contain inline-block" alt="">
+      <span id="announcement-bar-text">Tiệm Bánh Homemade M'Vie Cake • Giao Hàng Tận Nơi Thuận An & TP.HCM</span>
+    </span>
+    <span class="hidden md:inline text-stone-300">•</span>
+    <span class="hidden md:inline-flex items-center gap-1.5 text-stone-500">
+      <img src="assets/icons/clock.png" class="w-3 h-3 object-contain inline-block" alt="Clock">
+      <span id="announcement-sub-text">Vui lòng đặt trước 1-2 ngày để shop chuẩn bị chu đáo nhất</span>
+    </span>
+  </div>
+
+  <!-- Floating Liquid Glass Dynamic Dock Navigation -->
+  <header class="sticky top-2 sm:top-4 z-50 px-3 sm:px-6 transition-all duration-300 pointer-events-none">
+    <div 
+      id="liquid-glass-dock"
+      class="max-w-6xl mx-auto liquid-glass-dock rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between pointer-events-auto"
+    >
+      
+      <!-- Brand / Logo Area -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#D4AF37]/50 shadow-xs ring-2 ring-white/90 group-hover:scale-105 transition-transform duration-300 bg-white">
+          <img src="assets/logo.jpg" alt="M'Vie Cake Logo" class="store-logo-img w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5 leading-none">
+            <span class="store-name-text font-serif-luxury text-base sm:text-lg font-bold text-[#1E1612] group-hover:text-[#3B6998] transition-colors">M’Vie Cake</span>
+            <span class="text-[9px] uppercase tracking-wider bg-gradient-to-r from-[#FEFCE8] to-[#FEF08A] text-amber-950 px-2 py-0.5 rounded-full font-bold border border-[#D4AF37]/30 shadow-xs flex items-center gap-1">
+              <img src="assets/icons/sparkling.png" class="w-2.5 h-2.5 object-contain" alt="">
+              <span class="store-badge-text">Atelier</span>
+            </span>
+          </div>
+          <p class="store-tagline-text text-[10px] text-stone-500 font-medium tracking-wide mt-0.5 hidden sm:block">Haute Pâtisserie Homemade</p>
+        </div>
+      </a>
+
+      <!-- Desktop Curated Liquid Glass Nav Links (Clean & Uncluttered) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <a href="#menu-section" class="liquid-glass-pill group">
+          <img src="assets/icons/cake.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
+          <span>Menu Bánh</span>
+        </a>
+        <a href="#flavors-section" class="liquid-glass-pill group">
+          <img src="assets/icons/cookie.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
+          <span>Hương Vị</span>
+        </a>
+        <a href="#price-table" class="liquid-glass-pill group">
+          <img src="assets/icons/price-tag.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
+          <span>Bảng Giá & Combo</span>
+        </a>
+        <a href="#custom-cake" class="liquid-glass-pill group">
+          <img src="assets/icons/birthday-cake.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
+          <span>Bánh Custom</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+        </a>
+        <a href="#about" class="liquid-glass-pill group">
+          <img src="assets/icons/heart.png" class="w-3.5 h-3.5 object-contain opacity-70 group-hover:opacity-100 transition-opacity" alt="">
+          <span>Về Gian Bếp</span>
+        </a>
+      </nav>
+
+      <!-- Right Action Cluster -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        
+        <!-- Cart Liquid Bubble Button -->
+        <button 
+          onclick="toggleCart(true)"
+          class="liquid-bubble relative w-10 h-10 rounded-full flex items-center justify-center text-[#1E1612] group"
+          title="Giỏ hàng đã chọn"
+          aria-label="Giỏ hàng"
+        >
+          <img src="assets/icons/shopping-bag.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="Giỏ hàng">
+          <span 
+            id="cart-badge" 
+            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center shadow-xs border border-white hidden"
+          >0</span>
+        </button>
+
+        <!-- CTA Order Pill Button (Editorial Espresso Noir with Gold Sheen) -->
+        <a 
+          href="#menu-section"
+          class="relative inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-[#1E1612] hover:bg-[#2D231E] text-[#FAF8F5] text-xs uppercase tracking-[0.14em] font-bold shadow-[0_4px_16px_rgba(30,22,18,0.18)] hover:shadow-[0_8px_24px_rgba(30,22,18,0.28)] hover:-translate-y-0.5 transition-all duration-300 border border-[#D4AF37]/35 group overflow-hidden"
+        >
+          <span class="shimmer-effect"></span>
+          <span class="relative z-10 hidden sm:inline">Đặt Bánh</span>
+          <span class="relative z-10 sm:hidden">Menu</span>
+          <span class="relative z-10 w-4 h-4 rounded-full bg-white/10 group-hover:bg-[#FEF08A] group-hover:text-[#1E1612] flex items-center justify-center text-[10px] text-[#FEF08A] transition-all">→</span>
+        </a>
+
+        <!-- Admin Portal Icon Button -->
+        <a 
+          href="admin.html" 
+          target="_blank"
+          class="liquid-bubble w-10 h-10 rounded-full flex items-center justify-center text-stone-500 hover:text-[#3B6998] group"
+          title="Trang quản trị & đổi ảnh"
+          aria-label="Trang quản trị"
+        >
+          <img src="assets/icons/settings.png" class="w-4 h-4 object-contain group-hover:rotate-45 transition-transform" alt="Admin">
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          id="mobile-menu-btn"
+          class="liquid-bubble lg:hidden w-10 h-10 rounded-full flex items-center justify-center text-[#1E1612] focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation (Floating Liquid Glass Sheet) -->
+    <div 
+      id="mobile-menu" 
+      class="hidden lg:hidden max-w-lg mx-auto mt-2.5 liquid-glass-sheet p-5 space-y-1.5 pointer-events-auto"
+    >
+      <div class="px-3 pb-3 mb-2 border-b border-[#EAE3D9]/70 flex items-center justify-between">
+        <span class="font-serif-luxury text-sm font-bold text-[#1E1612]">Danh Mục Tiệm Bánh</span>
+        <span class="text-[10px] uppercase tracking-wider text-[#8C7A6B] font-semibold bg-white/70 px-2.5 py-0.5 rounded-full border border-stone-200/50">M'Vie Cake</span>
+      </div>
+
+      <a href="#hero" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/sparkling.png" class="w-4 h-4 object-contain" alt="">
+        <span>Trang Chủ</span>
+      </a>
+      <a href="#menu-section" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/cake.png" class="w-4 h-4 object-contain" alt="">
+        <span>Menu Bánh Nhà M'Vie</span>
+      </a>
+      <a href="#flavors-section" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/cookie.png" class="w-4 h-4 object-contain" alt="">
+        <span>Hương Vị Đặc Trưng</span>
+      </a>
+      <a href="#price-table" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/price-tag.png" class="w-4 h-4 object-contain" alt="">
+        <span>Bảng Giá & Combo Tiết Kiệm</span>
+      </a>
+      <a href="#custom-cake" class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <div class="flex items-center gap-3">
+          <img src="assets/icons/birthday-cake.png" class="w-4 h-4 object-contain" alt="">
+          <span>Bánh Sinh Nhật Theo Yêu Cầu</span>
+        </div>
+        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+      </a>
+      <a href="#about" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/heart.png" class="w-4 h-4 object-contain" alt="">
+        <span>Câu Chuyện Gian Bếp M'Vie</span>
+      </a>
+      <a href="#feedbacks" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/star.png" class="w-4 h-4 object-contain" alt="">
+        <span>Cảm Nhận Khách Hàng</span>
+      </a>
+      <a href="#contact" class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-stone-700 hover:text-[#1E1612] hover:bg-white/80 transition-all font-medium text-xs">
+        <img src="assets/icons/marker.png" class="w-4 h-4 object-contain" alt="">
+        <span>Địa Chỉ & Liên Hệ</span>
+      </a>
+
+      <!-- Quick Action Row at bottom of mobile sheet -->
+      <div class="pt-3 mt-2 border-t border-[#EAE3D9]/70 grid grid-cols-2 gap-2">
+        <a 
+          href="https://m.me/61589434797320" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-full bg-[#1E1612] text-white text-[11px] font-bold uppercase tracking-wider shadow-xs hover:bg-[#3B6998] transition-colors"
+        >
+          <img src="assets/icons/messenger.png" class="w-3.5 h-3.5 object-contain brightness-0 invert" alt="">
+          <span>Nhắn Tin</span>
+        </a>
+        <a 
+          href="admin.html" 
+          target="_blank"
+          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-full bg-white/90 border border-stone-200 text-stone-700 text-[11px] font-bold shadow-xs hover:bg-white transition-colors"
+        >
+          <img src="assets/icons/settings.png" class="w-3.5 h-3.5 object-contain" alt="">
+          <span>Quản Trị</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section: Haute Pâtisserie Editorial Luxury Experience -->
+  <section id="hero" class="relative overflow-hidden pt-12 pb-18 lg:pt-20 lg:pb-28 bg-[#FAF8F5]">
+    
+    <!-- Editorial Atmosphere Ambient Lighting (Subtle Champagne Gold & Atelier Blue Auras) -->
+    <div class="luxury-glow-blue absolute -top-24 -left-20 w-[34rem] h-[34rem] rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="luxury-glow-champagne absolute top-1/4 right-0 w-[32rem] h-[32rem] rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-0 left-1/3 w-[26rem] h-[26rem] bg-[#FFF1F2]/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- Architectural Micro Dot Grid (Haute Pâtisserie Canvas Texture) -->
+    <div class="absolute inset-0 bg-[radial-gradient(#1E1612_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- Left Column: Editorial Brand Story & Haute Pâtisserie Call-to-Action -->
+        <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+          
+          <!-- Atelier Haute Pâtisserie Tagline Eyebrow -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full atelier-seal backdrop-blur-md">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]"></span>
+            </span>
+            <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold text-[#8C7A6B]">
+              Haute Pâtisserie Artisanale
+            </span>
+            <span class="text-[#D4AF37] text-xs leading-none">•</span>
+            <span id="hero-badge-text" class="text-xs font-semibold text-[#2D231E] tracking-tight">
+              Tiệm Bánh Homemade M’Vie Cake • An Thạnh 73, Thuận An
+            </span>
+          </div>
+
+          <!-- Editorial Main Headline (Couture Serif Typography) -->
+          <h1 class="font-serif-luxury text-3xl sm:text-5xl lg:text-[3.75rem] text-[#1E1612] font-normal tracking-tight leading-[1.14]">
+            <span id="hero-title-line1" class="block font-medium drop-shadow-xs">Ngọt Lành Từng Giây,</span>
+            <span class="block mt-1 sm:mt-2 text-[#2D231E]">
+              Thăng Hoa Cùng 
+              <span class="relative inline-block font-normal italic text-[#3B6998] hover:text-[#234974] transition-colors duration-300" id="hero-title-highlight">
+                M’Vie Cake
+                <span class="absolute -bottom-1.5 left-0 w-full h-[3px] bg-gradient-to-r from-[#9BC7E8] via-[#FEF08A] to-[#9BC7E8] rounded-full opacity-80"></span>
+              </span>
+            </span>
+            <span id="hero-title-line2" class="block font-sans text-xs sm:text-sm uppercase tracking-[0.22em] text-[#8C7A6B] font-bold mt-4">
+              Bánh Tươi Nướng Mới Mỗi Ngày • Công Thức Thanh Ngọt Thủ Công
+            </span>
+          </h1>
+
+          <!-- Trau Chuốt Editorial Description (Vogue Gourmet Style) -->
+          <p id="hero-subtitle-text" class="text-[#655952] text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+            Mời bạn thưởng thức những món tráng miệng homemade ngọt dịu đặc trưng của M’Vie Cake: Gato Flan đậm vị Choco & Matcha, Panna Cotta hũ sốt trái cây tươi mát, Bánh Flan truyền thống béo mịn và Set Cupcake xinh xắn.
+          </p>
+
+          <!-- Hidden storage for policy bindings to preserve Admin CMS editing -->
+          <div class="hidden">
+            <span id="hero-policy-title">Lưu ý đặt bánh từ M'Vie Cake:</span>
+            <div id="hero-policy-note">• Đối với bánh trang trí sinh nhật, giá có thể thay đổi tùy theo mẫu trang trí và yêu cầu riêng của khách hàng.<br>• Bạn vui lòng <strong>đặt bánh trước 1-2 ngày</strong> để shop chuẩn bị chu đáo hơn cho mình ạ!</div>
+          </div>
+
+          <!-- Luxury Haute Pâtisserie CTA Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <!-- Primary CTA Button: Deep Espresso Noir with Gold Edge & Shimmer -->
+            <a 
+              href="#menu-section"
+              class="relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#1E1612] hover:bg-[#2D231E] text-[#FAF8F5] text-xs uppercase tracking-[0.16em] font-bold shadow-[0_12px_28px_rgba(30,22,18,0.22)] hover:shadow-[0_18px_36px_rgba(30,22,18,0.32)] hover:-translate-y-0.5 transition-all duration-300 border border-[#D4AF37]/40 group overflow-hidden"
+            >
+              <span class="shimmer-effect"></span>
+              <span id="hero-cta-primary" class="relative z-10">Xem Menu & Bảng Giá</span>
+              <span class="relative z-10 w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#FEF08A] group-hover:text-[#1E1612] flex items-center justify-center text-xs text-[#FEF08A] group-hover:translate-x-1 transition-all duration-300">→</span>
+            </a>
+
+            <!-- Secondary CTA Button: Atelier Glass Pearl Pill with Sparkling Accent -->
+            <a 
+              href="#custom-cake"
+              class="relative inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-white/85 hover:bg-white text-[#2D231E] text-xs uppercase tracking-[0.16em] font-bold shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-[#E8DCC8] hover:border-[#D4AF37]/60 group"
+            >
+              <img src="assets/icons/sparkling.png" class="w-4 h-4 object-contain group-hover:rotate-12 transition-transform opacity-90" alt="">
+              <span id="hero-cta-secondary">Đặt Bánh Sinh Nhật Custom</span>
+            </a>
+          </div>
+
+          <!-- 3 Huy Hiệu Cam Kết Thượng Hạng (3 Pillars of Haute Pâtisserie) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-8 mt-4 border-t border-[#EAE3D9] max-w-2xl mx-auto lg:mx-0">
+            
+            <!-- Pillar 1: Nguyên Liệu Thượng Hạng -->
+            <div class="commitment-card card-3d rounded-2xl p-4 sm:p-5 flex items-center sm:items-start text-left gap-3.5 group">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#FEFCE8] to-[#FEF08A] flex items-center justify-center shrink-0 border border-[#D4AF37]/30 shadow-xs group-hover:scale-110 transition-transform layer-3d-z1">
+                <img src="assets/icons/guarantee.png" class="w-5 h-5 object-contain" alt="Nguyên liệu">
+              </div>
+              <div class="layer-3d-z1">
+                <p class="font-serif-luxury text-xs sm:text-[13px] font-bold text-[#1E1612] leading-tight">
+                  Nguyên Liệu Thượng Hạng
+                </p>
+                <p class="text-[10px] sm:text-[11px] text-[#7A6E65] font-medium leading-snug mt-1">
+                  100% bơ sữa nhập & trứng tươi loại 1
+                </p>
+              </div>
+            </div>
+
+            <!-- Pillar 2: Nướng Tươi Thủ Công -->
+            <div class="commitment-card card-3d rounded-2xl p-4 sm:p-5 flex items-center sm:items-start text-left gap-3.5 group">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#EEF7FD] to-[#D7ECFB] flex items-center justify-center shrink-0 border border-[#9BC7E8]/40 shadow-xs group-hover:scale-110 transition-transform layer-3d-z1">
+                <img src="assets/icons/chef-hat.png" class="w-5 h-5 object-contain" alt="Nướng tươi">
+              </div>
+              <div class="layer-3d-z1">
+                <p class="font-serif-luxury text-xs sm:text-[13px] font-bold text-[#1E1612] leading-tight">
+                  Nướng Tươi Thủ Công
+                </p>
+                <p class="text-[10px] sm:text-[11px] text-[#7A6E65] font-medium leading-snug mt-1">
+                  Ra lò từng mẻ nhỏ ẩm mịn trong ngày
+                </p>
+              </div>
+            </div>
+
+            <!-- Pillar 3: Công Thức Thanh Ngọt Ít Đường -->
+            <div class="commitment-card card-3d rounded-2xl p-4 sm:p-5 flex items-center sm:items-start text-left gap-3.5 group">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#FFF1F2] to-[#FFE4E6] flex items-center justify-center shrink-0 border border-[#FDA4AF]/40 shadow-xs group-hover:scale-110 transition-transform layer-3d-z1">
+                <img src="assets/icons/heart.png" class="w-5 h-5 object-contain" alt="Ít đường">
+              </div>
+              <div class="layer-3d-z1">
+                <p class="font-serif-luxury text-xs sm:text-[13px] font-bold text-[#1E1612] leading-tight">
+                  Thanh Ngọt Ít Đường
+                </p>
+                <p class="text-[10px] sm:text-[11px] text-[#7A6E65] font-medium leading-snug mt-1">
+                  Giảm 40% đường, vị thanh tao dịu nhẹ
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Haute Pâtisserie Editorial Showcase Frame -->
+        <div class="lg:col-span-5 relative mt-6 lg:mt-0" id="hero-showcase-container">
+          
+          <!-- Top Floating French Atelier Medallion -->
+          <div class="absolute -top-6 -right-3 sm:-right-4 z-20 atelier-seal px-4 py-2 rounded-2xl shadow-[0_12px_30px_rgba(45,35,30,0.12)] animate-float flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FEF08A] to-[#FDE047] flex items-center justify-center shadow-xs shrink-0 border border-[#D4AF37]/40">
+              <img src="assets/icons/sparkling.png" class="w-4 h-4 object-contain" alt="Artisan">
+            </div>
+            <div class="text-left">
+              <p class="font-serif-luxury text-xs font-bold text-[#1E1612] tracking-wide leading-tight">Pâtisserie d’Art</p>
+              <p class="text-[9px] uppercase tracking-[0.18em] text-[#8C7A6B] font-semibold">Tươi Mới Mỗi Ngày</p>
+            </div>
+          </div>
+
+          <!-- Main Gallery Showcase Frame (Double Museum Passe-Partout Bevel) -->
+          <div class="luxury-passepartout luxury-shimmer-wrap relative rounded-[2.5rem] p-3 sm:p-4">
+            
+            <div id="hero-card-wrapper" class="rounded-[2rem] overflow-hidden aspect-[4/5] bg-stone-100 relative group cursor-pointer select-none ring-1 ring-black/5 shadow-inner">
+              
+              <!-- Main Rotating Cake Image -->
+              <img 
+                id="hero-main-img"
+                src="assets/gato-flan-choco.jpg" 
+                alt="Gato Flan M'Vie" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
+              >
+              
+              <!-- Haute Pâtisserie Card Overlay -->
+              <div id="hero-card-overlay" class="absolute inset-0 bg-gradient-to-t from-[#120D0A]/92 via-[#1E1612]/40 to-transparent flex flex-col justify-end p-5 sm:p-7 text-white transition-all duration-300">
+                
+                <!-- Top Badge + Live Deal Indicator -->
+                <div class="flex items-center justify-between mb-2.5 gap-2">
+                  <span id="hero-img-badge-wrap" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF08A] text-amber-950 text-xs font-bold shadow-sm tracking-wide">
+                    <img id="hero-badge-icon" src="assets/icons/sparkling.png" class="w-3.5 h-3.5 object-contain" alt="">
+                    <span id="hero-img-badge">Món Tủ Signature</span>
+                  </span>
+
+                  <!-- Live Deal Pill with Emerald Pulse -->
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-[10px] font-semibold text-white/95 border border-white/20 uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Haute Sélection</span>
+                  </div>
+                </div>
+
+                <!-- Product Title in Elegant Editorial Serif -->
+                <h3 id="hero-img-title" class="font-serif-luxury text-xl sm:text-2xl lg:text-[1.75rem] font-medium leading-snug tracking-wide text-[#FAF8F5] drop-shadow-md">
+                  Gato Flan Choco & Matcha
+                </h3>
+                
+                <!-- Product Pricing / Subtitle -->
+                <p id="hero-img-sub" class="text-xs sm:text-[13px] text-stone-200 mt-1.5 leading-relaxed font-light tracking-wide">
+                  Size nhỏ 30k - 35k • Ổ lớn sinh nhật 160k - 200k
+                </p>
+
+                <!-- Footer with Deal Progress Dots & Haute Arrows -->
+                <div class="flex items-center justify-between pt-3.5 mt-3.5 border-t border-white/20 text-xs">
+                  <div id="hero-deal-dots" class="flex items-center gap-1.5">
+                    <!-- Dots dynamically rendered -->
+                  </div>
+                  
+                  <div class="flex items-center gap-2" onclick="event.stopPropagation()">
+                    <button 
+                      id="hero-deal-prev" 
+                      class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md flex items-center justify-center text-sm font-semibold text-white transition-all active:scale-95 border border-white/25 shadow-xs"
+                      title="Deal trước"
+                      aria-label="Deal trước"
+                    >‹</button>
+                    <button 
+                      id="hero-deal-next" 
+                      class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md flex items-center justify-center text-sm font-semibold text-white transition-all active:scale-95 border border-white/25 shadow-xs"
+                      title="Deal ngẫu nhiên kế tiếp"
+                      aria-label="Deal kế tiếp"
+                    >›</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Concierge Recommendation Card (Bottom Left) -->
+          <div id="hero-floating-badge" class="absolute -bottom-6 -left-3 sm:-left-6 z-20 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-[1.75rem] shadow-[0_16px_36px_rgba(30,22,18,0.14)] border border-[#E8DCC8] max-w-[17rem] sm:max-w-xs cursor-pointer hover:scale-105 hover:-translate-y-1 transition-all duration-300 group">
+            <div class="flex items-center gap-3">
+              <div id="floating-badge-icon-box" class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#EEF7FD] to-[#D7ECFB] flex items-center justify-center shrink-0 shadow-xs border border-[#9BC7E8]/30 group-hover:rotate-6 transition-transform">
+                <img id="floating-badge-icon" src="assets/icons/jelly.png" class="w-6 h-6 object-contain" alt="Flan">
+              </div>
+              <div class="text-left">
+                <div class="flex items-center gap-1.5 mb-0.5">
+                  <span class="text-[9px] uppercase tracking-wider font-bold text-[#8C7A6B] bg-[#FAF8F5] px-1.5 py-0.5 rounded border border-[#E8DCC8]/70">Gợi Ý Hôm Nay</span>
+                </div>
+                <p id="floating-badge-title" class="font-serif-luxury font-bold text-xs sm:text-sm text-[#1E1612] leading-tight">Flan Caramel Béo Ngậy</p>
+                <p id="floating-badge-sub" class="text-[10px] sm:text-[11px] text-[#7A6E65] font-medium mt-0.5">Set 10 cái chỉ 85k ngọt dịu</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: "OUR FLAVORS" (Món Bánh Nổi Bật - Clean Horizontal Strip like Scooply) -->
+  <section id="flavors-section" class="py-14 bg-white border-y border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2D231E]">Hương Vị Đặc Trưng</h2>
+          <p class="text-stone-500 text-xs sm:text-sm mt-1">Những món tráng miệng homemade được yêu thích nhất tại M'Vie Cake</p>
+        </div>
+        <a href="#menu-section" class="text-xs font-bold text-[#6CAAD8] hover:underline flex items-center gap-1 group">
+          <span>Xem Toàn Bộ Menu</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+
+      <!-- 8 Circular Flavor Items Row (Swipeable on mobile, Grid on tablet/desktop) -->
+      <div class="flex overflow-x-auto no-scrollbar gap-4 sm:grid sm:grid-cols-4 lg:grid-cols-8 sm:gap-6 text-center pb-2 px-1 snap-x">
+        
+        <!-- Flavor 1 -->
+        <button onclick="quickFilterFromFlavor('gatoflan')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-[#9BC7E8] to-[#FEF08A] shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/gato-flan-choco.jpg" alt="Gato Flan Choco" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Flan Choco</span>
+          <span class="text-[11px] font-semibold text-stone-400">30k / cái</span>
+        </button>
+
+        <!-- Flavor 2 -->
+        <button onclick="quickFilterFromFlavor('gatoflan')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-[#9BC7E8] to-emerald-200 shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/cake-matcha.jpg" alt="Gato Flan Matcha" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Flan Matcha</span>
+          <span class="text-[11px] font-semibold text-stone-400">30k / cái</span>
+        </button>
+
+        <!-- Flavor 3 -->
+        <button onclick="quickFilterFromFlavor('gatoflan')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-emerald-300 to-[#FEF08A] shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/cake-matcha.jpg" alt="Full Matcha" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Full Matcha</span>
+          <span class="text-[11px] font-semibold text-stone-400">35k / cái</span>
+        </button>
+
+        <!-- Flavor 4 -->
+        <button onclick="quickFilterFromFlavor('flan')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-amber-300 to-[#FEF08A] shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/flan-caramel.jpg" alt="Flan Caramel" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Flan Truyền Thống</span>
+          <span class="text-[11px] font-semibold text-stone-400">85k / Set 10</span>
+        </button>
+
+        <!-- Flavor 5 -->
+        <button onclick="quickFilterFromFlavor('pannacotta')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-rose-200 to-[#9BC7E8] shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/panna-cotta-jars.jpg" alt="Panna Cotta 50ml" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Panna Cotta 50ml</span>
+          <span class="text-[11px] font-semibold text-stone-400">8k / hũ</span>
+        </button>
+
+        <!-- Flavor 6 -->
+        <button onclick="quickFilterFromFlavor('pannacotta')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-[#9BC7E8] to-purple-200 shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/panna-cotta.jpg" alt="Panna Cotta 120ml" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Panna Cotta 120ml</span>
+          <span class="text-[11px] font-semibold text-stone-400">12k / hũ</span>
+        </button>
+
+        <!-- Flavor 7 -->
+        <button onclick="quickFilterFromFlavor('cupcake')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-pink-300 to-[#FEF08A] shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/cupcake-set.jpg" alt="Set Cupcake" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Set Cupcake</span>
+          <span class="text-[11px] font-semibold text-stone-400">110k / Set 4</span>
+        </button>
+
+        <!-- Flavor 8 -->
+        <button onclick="quickFilterFromFlavor('birthday')" class="group flex flex-col items-center shrink-0 w-20 sm:w-auto snap-start focus:outline-none">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-[#9BC7E8] to-amber-200 shadow-xs group-hover:scale-105 group-hover:shadow-md transition-all">
+            <img src="assets/cake-custom-vintage.jpg" alt="Bánh Sinh Nhật" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="font-bold text-xs text-[#2D231E] group-hover:text-[#6CAAD8] transition-colors mt-2.5 line-clamp-1">Bánh Custom</span>
+          <span class="text-[11px] font-semibold text-stone-400">Theo yêu cầu</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: 2-COLUMN PROMO BANNERS (Mirrors Scooply's "Special Today" & "Custom Cakes") -->
+  <section id="promos-section" class="py-20 lg:py-28 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        
+        <!-- Promo Banner 1: Combo Tiệc Trà & Hũ Panna Cotta -->
+        <div class="card-3d rounded-[2.5rem] p-8 sm:p-10 lg:p-12 bg-[#EEF7FD] border border-[#9BC7E8]/40 shadow-[0_16px_36px_rgba(45,35,30,0.06)] hover:shadow-[0_24px_48px_rgba(45,35,30,0.12)] flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative group">
+          <div class="space-y-4 z-10 sm:max-w-[60%] layer-3d-z1">
+            <span class="inline-block text-[11px] font-bold tracking-[0.2em] text-[#3B6998] uppercase bg-white/80 px-3 py-1 rounded-full border border-[#9BC7E8]/30">ƯU ĐÃI TIỆC TRÀ</span>
+            <h3 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#1E1612] leading-tight">
+              Combo Panna Cotta & Flan Tiết Kiệm
+            </h3>
+            <p class="text-xs sm:text-[13px] text-stone-600 leading-relaxed">
+              Set 10 - 20 hũ sốt trái cây tươi mát & Flan thơm ngậy. Tiết kiệm đến 30k cho tiệc sinh nhật & hội họp gia đình!
+            </p>
+            <div class="pt-2 layer-3d-z2">
+              <a 
+                href="#price-table" 
+                class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#1E1612] text-white text-xs uppercase tracking-wider font-bold hover:bg-[#3B6998] transition-all shadow-md hover:-translate-y-0.5"
+              >
+                <span>Xem Bảng Giá Combo</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+          <div class="w-44 sm:w-52 aspect-square rounded-[2rem] overflow-hidden shadow-lg shrink-0 group-hover:scale-105 transition-transform duration-500 border-2 border-white layer-3d-z1">
+            <img src="assets/panna-cotta-jars.jpg" alt="Combo Panna Cotta" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Promo Banner 2: Bánh Sinh Nhật Custom -->
+        <div class="card-3d rounded-[2.5rem] p-8 sm:p-10 lg:p-12 bg-white border border-[#E8DCC8] shadow-[0_16px_36px_rgba(45,35,30,0.06)] hover:shadow-[0_24px_48px_rgba(45,35,30,0.12)] flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative group">
+          <div class="space-y-4 z-10 sm:max-w-[60%] layer-3d-z1">
+            <span class="inline-block text-[11px] font-bold tracking-[0.2em] text-[#9A6B3D] uppercase bg-[#FAF8F5] px-3 py-1 rounded-full border border-[#E8DCC8]">THIẾT KẾ RIÊNG</span>
+            <h3 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#1E1612] leading-tight">
+              Bánh Sinh Nhật Trang Trí Theo Yêu Cầu
+            </h3>
+            <p class="text-xs sm:text-[13px] text-stone-600 leading-relaxed">
+              Nhận decor ổ Gato Flan lớn, Bánh Bento và Set Cupcake xinh xắn theo mẫu của bạn. Đặt trước 1-2 ngày để tiệm chuẩn bị chu đáo!
+            </p>
+            <div class="pt-2 layer-3d-z2">
+              <a 
+                href="#custom-cake" 
+                class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border border-[#1E1612] text-[#1E1612] text-xs uppercase tracking-wider font-bold hover:bg-[#1E1612] hover:text-white transition-all shadow-xs hover:-translate-y-0.5"
+              >
+                <span>Gửi Mẫu Bánh Custom</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+          <div class="w-44 sm:w-52 aspect-square rounded-[2rem] overflow-hidden shadow-lg shrink-0 group-hover:scale-105 transition-transform duration-500 relative border-2 border-white layer-3d-z1">
+            <img src="assets/cake-custom-vintage.jpg" alt="Bánh Sinh Nhật Custom" class="w-full h-full object-cover">
+            <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-full text-[10px] font-bold text-stone-800 shadow-xs border border-stone-200">
+              Decor theo mẫu ♡
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- Section 2: Menu Chuẩn Của M'Vie Cake -->
+  <section id="menu-section" class="py-20 lg:py-32 bg-white border-y border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
+          Menu Chính Thức
+        </span>
+        <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
+          Thực Đơn Món Bánh Nhà M’Vie
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base leading-relaxed">
+          Menu chuẩn từ tiệm với giá niêm yết rõ ràng, nhiều phân loại size và set combo tiết kiệm.
+        </p>
+      </div>
+
+      <!-- Categories Filter Tabs (Rendered dynamically by app.js) -->
+      <div id="category-tabs-container" class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-14 sm:mb-16"></div>
+
+      <!-- Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+  <!-- Section 3: Bảng Giá Chi Tiết Theo Menu Shop Gửi -->
+  <section id="price-table" class="py-20 lg:py-32 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] text-amber-900 bg-amber-100/80 px-4 py-1.5 rounded-full border border-amber-200/60">
+          <img src="assets/icons/price-tag.png" class="w-3.5 h-3.5 object-contain" alt="">
+          Bảng Giá Tiện Tra Cứu
+        </span>
+        <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
+          Bảng Giá Bánh & Combo Tiết Kiệm
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base leading-relaxed">
+          Tổng hợp chi tiết từng món và từng mức số lượng theo menu niêm yết của tiệm M'Vie Cake.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Cột 1: Gato Flan & Flan -->
+        <div class="card-3d bg-white rounded-[2.5rem] p-8 sm:p-9 shadow-[0_14px_36px_rgba(30,22,18,0.06)] border border-[#EAE3D9] flex flex-col justify-between hover:shadow-[0_24px_48px_rgba(30,22,18,0.12)] transition-all duration-300">
+          <div class="layer-3d-z1">
+            <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-[#F2ECE4]">
+              <div class="w-12 h-12 rounded-2xl bg-[#EEF7FD] flex items-center justify-center shrink-0 border border-[#9BC7E8]/30">
+                <img src="assets/icons/cake.png" class="w-6 h-6 object-contain" alt="Gato Flan">
+              </div>
+              <div>
+                <h3 class="font-serif-luxury font-bold text-lg text-[#1E1612]">Gato Flan & Flan</h3>
+                <p class="text-xs text-[#8C7A6B]">Món đặc trưng của tiệm</p>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              
+              <div>
+                <span class="text-xs font-bold text-[#3B6998] uppercase tracking-wider block mb-2.5">Size Nhỏ (1 cái)</span>
+                <ul class="text-xs sm:text-[13px] space-y-2.5 text-stone-600">
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan Choco</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">30k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan matcha</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">30k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan full matcha</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">35k</strong>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <span class="text-xs font-bold text-[#3B6998] uppercase tracking-wider block mb-2.5">Size Lớn (Ổ sinh nhật/tiệc)</span>
+                <ul class="text-xs sm:text-[13px] space-y-2.5 text-stone-600">
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan choco lớn</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">160k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan matcha lớn</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">180k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Gato Flan full matcha lớn</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">200k</strong>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-2">
+                <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-2.5">Bánh Flan Truyền Thống</span>
+                <div class="p-4 bg-[#FEFCE8] border border-amber-200/60 rounded-2xl flex justify-between items-center text-xs sm:text-[13px]">
+                  <span class="font-medium text-amber-950 flex items-center gap-2">
+                    <img src="assets/icons/jelly.png" class="w-4 h-4 object-contain" alt="">
+                    Set 10 Flan Béo Ngậy
+                  </span>
+                  <strong class="text-base text-amber-950 font-serif-luxury font-bold">85k</strong>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="layer-3d-z2 pt-6">
+            <button 
+              onclick="renderProducts('gatoflan'); document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})"
+              class="w-full py-3.5 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs uppercase tracking-wider font-bold transition-all text-center flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5"
+            >
+              <img src="assets/icons/cake.png" class="w-4 h-4 object-contain brightness-0 invert" alt="">
+              <span>Đặt Mua Gato Flan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cột 2: Panna Cotta -->
+        <div class="card-3d bg-white rounded-[2.5rem] p-8 sm:p-9 shadow-[0_14px_36px_rgba(30,22,18,0.06)] border border-[#EAE3D9] flex flex-col justify-between hover:shadow-[0_24px_48px_rgba(30,22,18,0.12)] transition-all duration-300">
+          <div class="layer-3d-z1">
+            <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-[#F2ECE4]">
+              <div class="w-12 h-12 rounded-2xl bg-[#FFF1F2] flex items-center justify-center shrink-0 border border-rose-200/60">
+                <img src="assets/icons/dessert.png" class="w-6 h-6 object-contain" alt="Panna Cotta">
+              </div>
+              <div>
+                <h3 class="font-serif-luxury font-bold text-lg text-[#1E1612]">Panna Cotta</h3>
+                <p class="text-xs text-[#8C7A6B]">Hũ 50ml & Hũ 120ml</p>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              
+              <div>
+                <div class="flex justify-between items-center mb-2.5">
+                  <span class="text-xs font-bold text-[#3B6998] uppercase tracking-wider">Hũ 50ml</span>
+                  <span class="text-xs text-stone-500 font-semibold bg-stone-100 px-2 py-0.5 rounded-md">8k / hũ lẻ</span>
+                </div>
+                <div class="bg-[#FAF8F5] border border-[#E8DCC8]/60 rounded-2xl p-4 text-xs sm:text-[13px] space-y-2 text-stone-600">
+                  <div class="flex justify-between">
+                    <span>Combo 6 hũ 50ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">45k</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Combo 10 hũ 50ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">75k</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Combo 20 hũ 50ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">150k</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2.5">
+                  <span class="text-xs font-bold text-[#3B6998] uppercase tracking-wider">Hũ 120ml</span>
+                  <span class="text-xs text-stone-500 font-semibold bg-stone-100 px-2 py-0.5 rounded-md">12k / hũ lẻ</span>
+                </div>
+                <div class="bg-[#FAF8F5] border border-[#E8DCC8]/60 rounded-2xl p-4 text-xs sm:text-[13px] space-y-2 text-stone-600">
+                  <div class="flex justify-between">
+                    <span>Combo 6 hũ 120ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">65k</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Combo 10 hũ 120ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">110k</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Combo 20 hũ 120ml:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury font-bold">230k</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-[11px] text-stone-500 italic pt-1">
+                * Có các vị sốt hoa quả tươi mát: Dâu, Xoài, Kiwi, Việt Quất, Trà Xanh...
+              </div>
+
+            </div>
+          </div>
+
+          <div class="layer-3d-z2 pt-6">
+            <button 
+              onclick="renderProducts('pannacotta'); document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})"
+              class="w-full py-3.5 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs uppercase tracking-wider font-bold transition-all text-center flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5"
+            >
+              <img src="assets/icons/dessert.png" class="w-4 h-4 object-contain brightness-0 invert" alt="">
+              <span>Đặt Mua Panna Cotta</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cột 3: Cupcake & Bánh Sinh Nhật -->
+        <div class="card-3d bg-white rounded-[2.5rem] p-8 sm:p-9 shadow-[0_14px_36px_rgba(30,22,18,0.06)] border border-[#EAE3D9] flex flex-col justify-between hover:shadow-[0_24px_48px_rgba(30,22,18,0.12)] transition-all duration-300">
+          <div class="layer-3d-z1">
+            <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-[#F2ECE4]">
+              <div class="w-12 h-12 rounded-2xl bg-[#FEFCE8] flex items-center justify-center shrink-0 border border-amber-200/60">
+                <img src="assets/icons/cupcake.png" class="w-6 h-6 object-contain" alt="Cupcake">
+              </div>
+              <div>
+                <h3 class="font-serif-luxury font-bold text-lg text-[#1E1612]">Cupcake & Sinh Nhật</h3>
+                <p class="text-xs text-[#8C7A6B]">Tiệc sinh nhật & quà tặng</p>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              
+              <div>
+                <span class="text-xs font-bold text-[#3B6998] uppercase tracking-wider block mb-2.5">Set Cupcake Xinh Xắn</span>
+                <ul class="text-xs sm:text-[13px] space-y-2.5 text-stone-600">
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Set 4 cái:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">110k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Set 6 cái:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">165k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Set 9 cái:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">240k</strong>
+                  </li>
+                  <li class="flex justify-between py-1.5 border-b border-stone-100">
+                    <span>Set 12 cái:</span>
+                    <strong class="text-[#1E1612] font-serif-luxury text-sm">310k</strong>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="p-4 bg-rose-50/70 border border-rose-200/60 rounded-2xl space-y-2">
+                <span class="text-xs font-bold text-rose-900 flex items-center gap-2">
+                  <img src="assets/icons/birthday-cake.png" class="w-4 h-4 object-contain" alt="">
+                  Bánh Trang Trí Sinh Nhật
+                </span>
+                <p class="text-xs text-rose-800 leading-relaxed">
+                  Giá có thể thay đổi tùy theo mẫu trang trí và yêu cầu riêng của bạn.<br>
+                  <strong>⏰ Đặt trước 1-2 ngày</strong> để tiệm chuẩn bị chu đáo nhất!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="layer-3d-z2 pt-6">
+            <a 
+              href="#custom-cake"
+              class="w-full py-3.5 rounded-full bg-[#3B6998] hover:bg-[#234974] text-white text-xs uppercase tracking-wider font-bold transition-all text-center block shadow-md hover:-translate-y-0.5"
+            >
+              Gửi Mẫu Bánh Muốn Làm →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+  <!-- Section 4: Form Đặt Bánh Sinh Nhật Theo Yêu Cầu -->
+  <section id="custom-cake" class="py-20 lg:py-32 bg-white border-t border-stone-100 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
+          THIẾT KẾ THEO YÊU CẦU
+        </span>
+        <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
+          Đặt Bánh Trang Trí Sinh Nhật
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base leading-relaxed">
+          Tiệm nhận làm bánh sinh nhật trang trí theo mẫu riêng (Ổ Gato Flan decor, Bento Cake, Cupcake tiệc...)
+        </p>
+      </div>
+
+      <div class="card-3d bg-[#FAF8F5] rounded-[2.5rem] p-8 sm:p-12 shadow-[0_16px_40px_rgba(30,22,18,0.06)] border border-[#E8DCC8]/80">
+        <form id="custom-cake-form" class="space-y-7 layer-3d-z1">
+          
+          <!-- Chọn loại bánh -->
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-3.5">
+              1. Bạn muốn đặt loại bánh nào?
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <label class="cursor-pointer">
+                <input type="radio" name="cake_type" value="Ổ Gato Flan Lớn Trang Trí Sinh Nhật" checked class="peer sr-only">
+                <div class="p-4 sm:p-5 rounded-2xl border-2 border-stone-200 text-center peer-checked:border-[#3B6998] peer-checked:bg-[#EEF7FD] bg-white transition-all shadow-xs">
+                  <img src="assets/icons/cake.png" class="w-9 h-9 mx-auto mb-2 object-contain" alt="Flan">
+                  <span class="font-serif-luxury font-bold text-sm block text-[#1E1612]">Ổ Gato Flan Lớn</span>
+                  <span class="text-[11px] text-stone-500 mt-0.5 block">Decor sinh nhật độc đáo</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="cake_type" value="Set Cupcake Trang Trí Tiệc" class="peer sr-only">
+                <div class="p-4 sm:p-5 rounded-2xl border-2 border-stone-200 text-center peer-checked:border-[#3B6998] peer-checked:bg-[#EEF7FD] bg-white transition-all shadow-xs">
+                  <img src="assets/icons/cupcake.png" class="w-9 h-9 mx-auto mb-2 object-contain" alt="Cupcake">
+                  <span class="font-serif-luxury font-bold text-sm block text-[#1E1612]">Set Cupcake Sinh Nhật</span>
+                  <span class="text-[11px] text-stone-500 mt-0.5 block">Set 4, 6, 9, 12 cái</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="cake_type" value="Bánh Kem Sinh Nhật Thiết Kế Riêng" class="peer sr-only">
+                <div class="p-4 sm:p-5 rounded-2xl border-2 border-stone-200 text-center peer-checked:border-[#3B6998] peer-checked:bg-[#EEF7FD] bg-white transition-all shadow-xs">
+                  <img src="assets/icons/birthday-cake.png" class="w-9 h-9 mx-auto mb-2 object-contain" alt="Birthday Cake">
+                  <span class="font-serif-luxury font-bold text-sm block text-[#1E1612]">Bánh Kem Custom</span>
+                  <span class="text-[11px] text-stone-500 mt-0.5 block">Làm theo ảnh mẫu gửi kèm</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Vị bánh & Lời chúc -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="custom-flavor" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2.5">
+                2. Vị bánh mong muốn:
+              </label>
+              <select id="custom-flavor" class="w-full px-4 py-3.5 rounded-2xl border border-stone-200 text-sm font-medium focus:ring-2 focus:ring-[#3B6998] focus:outline-none bg-white shadow-xs">
+                <option value="Gato Flan Choco (Vị sô-cô-la béo mịn)">Gato Flan Choco</option>
+                <option value="Gato Flan Matcha (Trà xanh thanh mát)">Gato Flan Matcha</option>
+                <option value="Gato Flan Full Matcha (Đậm vị trà xanh)">Gato Flan Full Matcha</option>
+                <option value="Cupcake mix vị hoa kem">Cupcake mix vị hoa kem</option>
+                <option value="Vani bơ sữa truyền thống">Vani bơ sữa truyền thống</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="custom-text" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2.5">
+                3. Lời chúc ghi lên bánh:
+              </label>
+              <input 
+                type="text" 
+                id="custom-text" 
+                placeholder="VD: Happy Birthday My Love / Chúc mừng sinh nhật..." 
+                class="w-full px-4 py-3.5 rounded-2xl border border-stone-200 text-sm font-medium focus:ring-2 focus:ring-[#3B6998] focus:outline-none bg-white shadow-xs"
+              >
+            </div>
+          </div>
+
+          <!-- Thời gian & SĐT -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="custom-date" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2.5">
+                4. Ngày & Giờ Muốn Nhận (Vui lòng đặt trước 1-2 ngày):
+              </label>
+              <input 
+                type="datetime-local" 
+                id="custom-date" 
+                class="w-full px-4 py-3.5 rounded-2xl border border-stone-200 text-sm font-medium focus:ring-2 focus:ring-[#3B6998] focus:outline-none bg-white shadow-xs"
+              >
+            </div>
+
+            <div>
+              <label for="custom-contact" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2.5">
+                5. Số Điện Thoại / Zalo Của Bạn:
+              </label>
+              <input 
+                type="tel" 
+                id="custom-contact" 
+                required 
+                placeholder="Nhập SĐT để shop liên hệ tư vấn" 
+                class="w-full px-4 py-3.5 rounded-2xl border border-stone-200 text-sm font-medium focus:ring-2 focus:ring-[#3B6998] focus:outline-none bg-white shadow-xs"
+              >
+            </div>
+          </div>
+
+          <div>
+            <label for="custom-notes" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2.5">
+              6. Mô tả mẫu trang trí / link ảnh mong muốn:
+            </label>
+            <textarea 
+              id="custom-notes" 
+              rows="3" 
+              placeholder="Bạn có thể mô tả chi tiết hoa văn, màu sắc hoặc hình ảnh bạn muốn shop decor..."
+              class="w-full px-4 py-3.5 rounded-2xl border border-stone-200 text-sm font-medium focus:ring-2 focus:ring-[#3B6998] focus:outline-none bg-white shadow-xs"
+            ></textarea>
+          </div>
+
+          <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/80 text-xs text-amber-950 border border-amber-200/80 flex items-start gap-3">
+            <span class="text-base">ℹ️</span>
+            <span class="leading-relaxed">
+              <strong>Lưu ý:</strong> Giá bánh sinh nhật trang trí sẽ tùy thuộc vào độ chi tiết của mẫu. Sau khi bạn gửi form, thông tin sẽ được chuyển tiếp đến Fanpage M'Vie Cake để shop báo giá chuẩn xác nhất cho bạn nhé!
+            </span>
+          </div>
+
+          <div class="pt-2 flex justify-end layer-3d-z2">
+            <button 
+              type="submit" 
+              class="w-full sm:w-auto px-9 py-4 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5"
+            >
+              <span>Gửi Yêu Cầu Cho Tiệm M'Vie Cake</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Why M'Vie Cake? (Clean 4 Features Row with 3D Depth) -->
+  <section id="why-section" class="py-20 lg:py-32 bg-white border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span id="about-badge-text" class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 mb-3 inline-block">
+        CAM KẾT CHẤT LƯỢNG
+      </span>
+      <h2 id="about-title-text" class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612] mb-4">
+        Vì Sao Bạn Sẽ Yêu Thích M’Vie Cake?
+      </h2>
+      <p id="about-desc-text" class="text-stone-500 text-sm sm:text-base max-w-2xl mx-auto mb-14 leading-relaxed">
+        Xuất phát từ niềm đam mê tạo nên những chiếc bánh ngọt lành cho những người thân yêu, M’Vie Cake luôn giữ trọn cam kết trong từng mẻ bánh.
+      </p>
+      
+      <!-- 4 Clean Columns (Rendered dynamically by app.js) -->
+      <div id="about-features-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Section: Our Story / Gian Bếp M'Vie (Mirrors Scooply's "A Sweeter Tomorrow") -->
+  <section id="about" class="py-20 lg:py-32 bg-[#FAF8F5] border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Bakery Photo -->
+        <div class="lg:col-span-6 relative">
+          <div class="card-3d rounded-[2.5rem] overflow-hidden aspect-[4/3] bg-stone-100 shadow-2xl border-4 border-white">
+            <img id="about-main-img" src="assets/baking-process.jpg" alt="Làm bánh tại M'Vie" class="w-full h-full object-cover layer-3d-z1">
+          </div>
+          
+          <!-- Cute Polaroid Sticker -->
+          <div class="absolute -bottom-8 -right-4 sm:right-6 polaroid-card -rotate-3 hidden sm:block z-20">
+            <div class="tape-sticker"></div>
+            <img src="assets/cake-rolls.jpg" class="w-36 h-28 object-cover rounded-md mb-2" alt="Bánh cuộn">
+            <p class="font-handwriting text-stone-700 text-base font-bold text-center">Homemade with love ♡</p>
+          </div>
+        </div>
+
+        <!-- Right Story Text -->
+        <div class="lg:col-span-6 space-y-6 lg:pl-6">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
+            CÂU CHUYỆN GIAN BẾP
+          </span>
+          <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612] leading-tight">
+            Vị Ngọt Lành Từ Gian Bếp Nhỏ
+          </h2>
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
+            M’Vie Cake bắt đầu từ gian bếp nhỏ ấm cúng với tình yêu dành cho những mẻ bánh nướng thơm lừng mỗi sáng. Chúng mình luôn tin rằng, một chiếc bánh ngon không cần quá nhiều đường ngọt gắt hay phụ gia tạo màu, mà là sự hòa quyện dịu dàng giữa lớp flan caramel béo mịn và cốt bông lan mềm tan.
+          </p>
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
+            Tất cả các món tráng miệng tại tiệm đều được nướng tươi mới mỗi ngày và giao tận tay bạn trong túi giữ nhiệt mát lạnh.
+          </p>
+          <div class="pt-2">
+            <a 
+              href="#menu-section"
+              class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs uppercase tracking-widest font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            >
+              <span>Xem Menu Món Bánh</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Feedbacks & Reviews (Clean Boutique Style) -->
+  <section id="feedbacks" class="py-20 lg:py-32 bg-white border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
+          CẢM NHẬN KHÁCH HÀNG
+        </span>
+        <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
+          Khách Hàng Nói Gì Về M’Vie Cake?
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base leading-relaxed">
+          Sự ủng hộ của bạn tại Thuận An, Bình Dương & TP.HCM là niềm vui lớn nhất của gian bếp nhỏ
+        </p>
+      </div>
+
+      <!-- Feedbacks Grid (Rendered dynamically by app.js) -->
+      <div id="feedbacks-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"></div>
+
+    </div>
+  </section>
+
+  <!-- Section: Call To Action Banner ("Stay in the Loop" in Scooply) -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="card-3d rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-r from-[#EEF7FD] via-[#FEFCE8]/60 to-[#EEF7FD] border border-stone-200/80 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="flex items-center gap-6 text-center md:text-left layer-3d-z1">
+          <div class="w-20 h-20 rounded-full overflow-hidden shadow-lg shrink-0 hidden sm:block border-2 border-white">
+            <img src="assets/gato-flan-choco.jpg" alt="Bánh tươi" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h3 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#1E1612]">
+              Bạn Đã Sẵn Sàng Thưởng Thức Bánh Tươi Hôm Nay?
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
+              Nhắn tin Fanpage hoặc gọi hotline để đặt bánh và được tiệm tư vấn chu đáo nhất nhé!
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3.5 shrink-0 layer-3d-z2">
+          <a 
+            href="https://m.me/61589434797320" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-7 py-3.5 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs uppercase tracking-wider font-bold shadow-md hover:-translate-y-0.5 transition-all inline-flex items-center gap-2.5"
+          >
+            <img src="assets/icons/messenger.png" class="w-4 h-4 object-contain brightness-0 invert" alt="">
+            <span>Nhắn Tin Messenger</span>
+          </a>
+          <a 
+            href="tel:0909xxxxxx" 
+            class="store-hotline-text px-7 py-3.5 rounded-full bg-white hover:bg-stone-50 border border-stone-200 text-[#1E1612] text-xs uppercase tracking-wider font-bold shadow-xs hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
+          >
+            <img src="assets/icons/phone.png" class="w-4 h-4 object-contain" alt="">
+            <span>Hotline Tiệm</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Contact & Location -->
+  <section id="contact" class="py-20 lg:py-32 bg-[#FAF8F5] border-t border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#3B6998] bg-[#EEF7FD] px-4 py-1.5 rounded-full border border-[#9BC7E8]/30 inline-block">
+            THÔNG TIN TIỆM BÁNH
+          </span>
+          <h2 class="font-serif-luxury text-3xl sm:text-5xl font-medium text-[#1E1612]">
+            Liên Hệ Đặt Bánh Cùng M’Vie Cake
+          </h2>
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
+            Tiệm luôn sẵn sàng phục vụ các món bánh tráng miệng tươi ngon mỗi ngày. Bạn nhớ đặt trước 1-2 ngày đối với bánh sinh nhật nhé!
+          </p>
+
+          <div class="space-y-4">
+            
+            <div class="card-3d flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EAE3D9] shadow-xs hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-2xl bg-[#EEF7FD] flex items-center justify-center shrink-0 border border-[#9BC7E8]/30 layer-3d-z1">
+                <img src="assets/icons/marker.png" class="w-5 h-5 object-contain" alt="Location">
+              </div>
+              <div class="layer-3d-z1">
+                <h4 class="font-bold text-[11px] uppercase tracking-wider text-stone-400">Địa Chỉ Tiệm</h4>
+                <p class="text-xs sm:text-sm font-bold text-[#1E1612] mt-1 store-address-text">An Thạnh 73, Thuận An, Bình Dương / TP. HCM</p>
+              </div>
+            </div>
+
+            <div class="card-3d flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EAE3D9] shadow-xs hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 border border-blue-200/50 layer-3d-z1">
+                <img src="assets/icons/facebook.png" class="w-5 h-5 object-contain" alt="Facebook">
+              </div>
+              <div class="layer-3d-z1">
+                <h4 class="font-bold text-[11px] uppercase tracking-wider text-stone-400">Fanpage Facebook Chính Thức</h4>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61589434797320" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-xs sm:text-sm text-[#3B6998] hover:underline font-bold block mt-1"
+                >
+                  facebook.com/profile.php?id=61589434797320 (M'Vie Cake)
+                </a>
+              </div>
+            </div>
+
+            <div class="card-3d flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#EAE3D9] shadow-xs hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/50 layer-3d-z1">
+                <img src="assets/icons/clock.png" class="w-5 h-5 object-contain" alt="Clock">
+              </div>
+              <div class="layer-3d-z1">
+                <h4 class="font-bold text-[11px] uppercase tracking-wider text-stone-400">Thời Gian Đặt Bánh</h4>
+                <p class="text-xs sm:text-sm font-bold text-[#1E1612] mt-1">Vui lòng đặt bánh trước 1-2 ngày để shop chuẩn bị chu đáo nhất</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-3">
+            <a 
+              href="https://m.me/61589434797320" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="px-8 py-4 rounded-full bg-[#1E1612] hover:bg-[#3B6998] text-white text-xs uppercase tracking-widest font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2.5 group"
+            >
+              <img src="assets/icons/messenger.png" class="w-4 h-4 object-contain group-hover:scale-110 transition-transform" alt="Messenger">
+              <span>Nhắn Tin Messenger Cho Tiệm</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Store Map / Card Visual -->
+        <div class="lg:col-span-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-card space-y-6">
+            <div class="flex items-center gap-4">
+              <img src="assets/logo.jpg" alt="M'Vie" class="w-16 h-16 rounded-2xl object-cover border-2 border-[#9BC7E8]/30 shadow-xs">
+              <div>
+                <h3 class="font-bold text-lg text-mvie-choco">M’Vie Cake Tiệm Bánh Tươi</h3>
+                <p class="text-xs text-stone-500">Giao hàng khu vực Thuận An, Dĩ An & TP. HCM</p>
+              </div>
+            </div>
+
+            <div class="rounded-2xl overflow-hidden bg-[#EEF7FD] p-4 border border-blue-100 space-y-2">
+              <div class="flex items-center justify-between text-xs font-semibold">
+                <span class="text-stone-600 font-bold">Bảo quản khi giao bánh</span>
+                <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full text-[10px]">Luôn mát lạnh nguyên vẹn</span>
+              </div>
+              <p class="text-[11px] text-stone-600 leading-relaxed">
+                Bánh Flan, Gato Flan và Panna Cotta được bảo quản cẩn thận trong túi giữ nhiệt để giữ trọn độ mát lạnh và thơm ngon khi đến tay bạn.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/60 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-bold text-amber-950">Đặt bánh tiệc / số lượng lớn?</p>
+                <p class="text-[11px] text-amber-800">Shop có giá ưu đãi cho combo từ 20 hũ trở lên</p>
+              </div>
+              <a 
+                href="https://m.me/61589434797320" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-4 py-2 rounded-full bg-[#FEF08A] hover:bg-yellow-300 text-amber-900 text-xs font-bold shadow-xs transition-all"
+              >
+                Nhắn Tiệm
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-stone-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo.jpg" alt="M'Vie" class="w-10 h-10 rounded-xl object-cover">
+            <span class="font-bold text-lg text-mvie-choco">M’Vie Cake</span>
+          </div>
+          <p class="text-xs text-stone-500 max-w-sm leading-relaxed">
+            Tiệm bánh homemade chuyên Gato Flan (Choco & Matcha), Panna Cotta hũ sốt trái cây tươi, Bánh Flan truyền thống, Cupcake và bánh trang trí sinh nhật theo yêu cầu.
+          </p>
+          <div class="text-xs text-stone-400">
+            📍 An Thạnh 73, Thuận An, Bình Dương / TP. HCM
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-wider text-stone-700 mb-3">Menu & Bảng Giá</h4>
+          <ul class="space-y-2 text-xs text-stone-500 font-medium">
+            <li><a href="#menu-section" class="hover:text-mvie-blue">Gato Flan (Choco & Matcha)</a></li>
+            <li><a href="#menu-section" class="hover:text-mvie-blue">Panna Cotta Hũ 50ml & 120ml</a></li>
+            <li><a href="#menu-section" class="hover:text-mvie-blue">Bánh Flan Set 10 cái</a></li>
+            <li><a href="#menu-section" class="hover:text-mvie-blue">Set Cupcake Sinh Nhật</a></li>
+            <li><a href="#price-table" class="hover:text-mvie-blue">Bảng Giá Combo Tiết Kiệm</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-wider text-stone-700 mb-3">Kênh Mạng Xã Hội</h4>
+          <ul class="space-y-2 text-xs text-stone-500 font-medium">
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61589434797320" target="_blank" rel="noopener noreferrer" class="hover:text-mvie-blue flex items-center gap-1.5">
+                <span>Facebook M'Vie Cake</span>
+              </a>
+            </li>
+            <li><a href="https://m.me/61589434797320" target="_blank" rel="noopener noreferrer" class="hover:text-mvie-blue">Messenger Đặt Bánh</a></li>
+            <li><a href="#contact" class="hover:text-mvie-blue">Địa Chỉ An Thạnh 73</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+        <div>
+          © 2026 M’Vie Cake. All rights reserved. Tiệm Bánh Tươi An Thạnh 73, Thuận An.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="admin.html" target="_blank" class="hover:text-stone-700 underline flex items-center gap-1.5 font-semibold text-stone-500">
+            <img src="assets/icons/settings.png" class="w-3.5 h-3.5 object-contain" alt="">
+            <span>Quản Trị & Sửa Menu</span>
+          </a>
+          <span class="text-stone-300">•</span>
+          <div class="flex items-center gap-1.5">
+            <span>Tiệm Bánh</span>
+            <span class="font-bold text-mvie-choco">M'Vie Cake</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <div class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3">
+    <!-- Messenger Button -->
+    <a 
+      href="https://m.me/61589434797320" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="w-12 h-12 sm:w-14 sm:h-14 p-2.5 sm:p-3 rounded-full bg-white text-white shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group border border-stone-200"
+      title="Nhắn tin với tiệm bánh M'Vie qua Messenger"
+    >
+      <img src="assets/icons/messenger.png" class="w-6 h-6 sm:w-8 sm:h-8 object-contain group-hover:scale-110 transition-transform" alt="Messenger">
+    </a>
+
+    <!-- Cart Floating Button (on mobile) -->
+    <button 
+      onclick="toggleCart(true)"
+      class="md:hidden relative w-12 h-12 sm:w-14 sm:h-14 p-2.5 sm:p-3 rounded-full bg-white text-stone-700 shadow-2xl hover:scale-110 transition-transform flex items-center justify-center border border-stone-200"
+      title="Xem giỏ hàng"
+    >
+      <img src="assets/icons/shopping-bag.png" class="w-6 h-6 sm:w-7 sm:h-7 object-contain" alt="Giỏ hàng">
+      <span 
+        id="cart-badge-mobile" 
+        class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center shadow-sm hidden"
+      >0</span>
+    </button>
+  </div>
+
+  <!-- Cart Slide-Over Drawer -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" onclick="toggleCart(false)"></div>
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <div class="p-5 border-b border-stone-100 flex items-center justify-between bg-mvie-cream">
+      <div class="flex items-center gap-2.5">
+        <img src="assets/icons/shopping-bag.png" class="w-6 h-6 object-contain" alt="Cart">
+        <h3 class="font-bold text-base text-mvie-choco">Giỏ Hàng M'Vie Cake</h3>
+      </div>
+      <button onclick="toggleCart(false)" class="p-2 text-stone-400 hover:text-stone-700 rounded-full hover:bg-stone-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Injected by app.js -->
+    </div>
+
+    <div id="cart-footer" class="p-5 border-t border-stone-100 bg-stone-50 space-y-4 hidden">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-stone-500">Tạm tính:</span>
+        <span id="cart-total-price" class="font-bold text-lg text-mvie-choco">0đ</span>
+      </div>
+      <p class="text-[11px] text-stone-400 italic">
+        * Phí vận chuyển sẽ được tính dựa trên địa chỉ giao nhận tại Thuận An & TP.HCM.
+      </p>
+      <button 
+        onclick="openCheckout()"
+        class="w-full py-3.5 rounded-2xl bg-[#9BC7E8] hover:bg-[#82b9df] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+      >
+        <span>Tiến Hành Đặt Hàng</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden relative border border-stone-100 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-stone-500 hover:text-stone-800 flex items-center justify-center shadow-md">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="quickview-content"></div>
+    </div>
+  </div>
+
+  <!-- Checkout Information Modal -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl p-6 sm:p-8 relative border border-stone-100 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCheckout()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <img src="assets/logo.jpg" alt="M'Vie" class="w-10 h-10 rounded-xl object-cover">
+        <div>
+          <h3 class="font-bold text-lg text-mvie-choco">Xác Nhận Đặt Bánh</h3>
+          <p class="text-xs text-stone-500">M'Vie Cake Thuận An</p>
+        </div>
+      </div>
+
+      <div class="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-100">
+        <h4 class="text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">Tóm tắt đơn hàng:</h4>
+        <div id="checkout-items-summary" class="space-y-1 mb-3"></div>
+        <div class="flex justify-between items-center text-sm font-bold border-t border-stone-200 pt-2 text-mvie-choco">
+          <span>Tổng tiền:</span>
+          <span id="checkout-total-price" class="text-mvie-blue text-base">0đ</span>
+        </div>
+      </div>
+
+      <form onsubmit="submitOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Họ & Tên người nhận *</label>
+          <input type="text" id="cust-name" required placeholder="VD: Thảo Vy" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Số điện thoại nhận bánh *</label>
+          <input type="tel" id="cust-phone" required placeholder="VD: 0909 xxx xxx" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Địa chỉ giao bánh (Thuận An / Bình Dương / TP.HCM) *</label>
+          <input type="text" id="cust-address" required placeholder="Số nhà, đường, phường, quận/huyện..." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Thời gian mong muốn nhận bánh (Đặt trước 1-2 ngày)</label>
+          <input type="datetime-local" id="cust-date" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Ghi chú thêm cho tiệm</label>
+          <textarea id="cust-note" rows="2" placeholder="VD: Giao trước 17h, vị sốt dâu và xoài..." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-[#9BC7E8] focus:outline-none"></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3.5 rounded-2xl bg-[#9BC7E8] hover:bg-[#82b9df] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mt-4"
+        >
+          <span>Gửi Đơn Qua Messenger M'Vie Cake</span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.513 3.735 7.195V22l3.418-1.876c.905.251 1.865.385 2.847.385 5.523 0 10-4.145 10-9.251C22 6.145 17.523 2 12 2zm1.047 12.447l-2.607-2.78-5.088 2.78 5.6-5.945 2.673 2.78 5.022-2.78-5.6 5.945z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Success Notification Modal -->
+  <div id="order-success-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl p-6 sm:p-8 text-center border border-stone-100">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+        ✓
+      </div>
+      <h3 class="text-xl font-bold text-mvie-choco mb-1">Tạo Đơn Hàng Thành Công!</h3>
+      <p class="text-xs text-stone-500 mb-4">
+        Nội dung đơn hàng đã được sao chép tự động. Hãy dán (Paste) vào tin nhắn Messenger hoặc Fanpage M'Vie Cake để shop chuẩn bị bánh ngay cho bạn nhé!
+      </p>
+      
+      <textarea 
+        id="order-success-text" 
+        readonly 
+        rows="6" 
+        class="w-full p-3 rounded-2xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 mb-6 focus:outline-none"
+      ></textarea>
+
+      <div class="flex gap-3">
+        <a 
+          href="https://m.me/61589434797320" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex-1 py-3 rounded-2xl bg-[#0084FF] hover:bg-blue-600 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5"
+        >
+          <span>Mở Messenger M'Vie</span>
+        </a>
+        <button 
+          onclick="document.getElementById('order-success-modal').classList.add('hidden')"
+          class="px-5 py-3 rounded-2xl border border-stone-200 text-stone-600 text-xs font-bold hover:bg-stone-50"
+        >
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Config & App JS -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

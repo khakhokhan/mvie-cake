@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --mvie-blue: #9BC7E8;
+  --mvie-blue-hover: #7dbce8;
+  --mvie-blue-light: #EEF7FD;
+  --mvie-blue-soft: #D7ECFB;
+  --mvie-yellow: #FEF08A;
+  --mvie-yellow-dark: #EAB308;
+  --mvie-yellow-light: #FEFCE8;
+  --mvie-pink: #FDA4AF;
+  --mvie-pink-dark: #F43F5E;
+  --mvie-pink-light: #FFF1F2;
+  --mvie-choco: #2D231E;
+  --mvie-choco-light: #6B5E57;
+  --mvie-cream: #EEF7FD;
+  --mvie-cream-card: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--mvie-cream);
+  color: var(--mvie-choco);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mvie-blue);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mvie-blue-hover);
+}
+
+/* Soft cute shadows */
+.shadow-soft {
+  box-shadow: 0 10px 25px -5px rgba(155, 199, 232, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-card {
+  box-shadow: 0 4px 20px rgba(45, 35, 30, 0.05);
+}
+
+.shadow-card:hover {
+  box-shadow: 0 16px 32px rgba(155, 199, 232, 0.35);
+}
+
+/* Gentle floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Badge styles */
+.badge-category {
+  transition: all 0.25s ease;
+}
+.badge-category.active {
+  background-color: var(--mvie-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(155, 199, 232, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Wavy divider */
+.wave-divider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+/* ==========================================================================
+   LIQUID GLASS (FLUID GLASSMORPHISM) NAVIGATION SYSTEM
+   ========================================================================== */
+
+.liquid-glass-dock {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(28px) saturate(210%);
+  -webkit-backdrop-filter: blur(28px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 
+    0 20px 48px -12px rgba(30, 22, 18, 0.09),
+    0 8px 16px -6px rgba(30, 22, 18, 0.04),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Liquid specular highlight sheen along top border */
+.liquid-glass-dock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), rgba(254, 240, 138, 0.7), rgba(255, 255, 255, 0.95), transparent);
+  pointer-events: none;
+  border-radius: 9999px;
+}
+
+/* Scrolled state for even richer depth and compact luxury */
+.liquid-glass-dock.is-scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(32px) saturate(220%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%);
+  box-shadow: 
+    0 24px 52px -10px rgba(30, 22, 18, 0.15),
+    0 10px 20px -6px rgba(30, 22, 18, 0.07),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Liquid interactive pill for nav links */
+.liquid-glass-pill {
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+  padding: 0.45rem 0.95rem;
+  color: #52443C;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.liquid-glass-pill:hover {
+  color: #1E1612;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 4px 14px rgba(30, 22, 18, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.liquid-glass-pill.active {
+  color: #1E1612;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(212, 175, 55, 0.3);
+  font-weight: 600;
+  box-shadow: 
+    0 4px 16px rgba(30, 22, 18, 0.08),
+    inset 0 1px 1.5px rgba(255, 255, 255, 1);
+}
+
+/* Liquid button bubble (for cart, buttons, settings) */
+.liquid-bubble {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 4px 14px rgba(30, 22, 18, 0.05),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-bubble:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 8px 24px rgba(30, 22, 18, 0.1),
+    inset 0 1px 1.5px rgba(255, 255, 255, 1);
+  transform: translateY(-1.5px) scale(1.04);
+}
+
+/* Liquid Dropdown / Mobile Floating Glass Sheet */
+.liquid-glass-sheet {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(32px) saturate(220%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 32px 64px -16px rgba(30, 22, 18, 0.18),
+    0 12px 28px -8px rgba(30, 22, 18, 0.08),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+  border-radius: 2rem;
+  overflow: hidden;
+  animation: liquidSheetFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes liquidSheetFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fallback for legacy class */
+.header-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+}
+
+/* Custom Cake Option Card Selected */
+.option-card.selected {
+  border-color: var(--mvie-blue-dark);
+  background-color: var(--mvie-blue-light);
+  box-shadow: 0 0 0 3px rgba(155, 199, 232, 0.4);
+}
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Polaroid Card Effect */
+.polaroid-card {
+  background: #ffffff;
+  padding: 10px 10px 18px 10px;
+  box-shadow: 0 14px 28px rgba(45, 35, 30, 0.08), 0 10px 10px rgba(45, 35, 30, 0.04);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 20px 35px rgba(155, 199, 232, 0.25);
+}
+
+.tape-sticker {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 22px;
+  background: rgba(254, 240, 138, 0.7);
+  backdrop-filter: blur(2px);
+  border: 1px dashed rgba(234, 179, 8, 0.4);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Horizontal Scroll Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Haute Pâtisserie Luxury Typography & Boutique Styling
+   ========================================================================== */
+.font-serif-luxury {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-editorial-sans {
+  font-family: 'Plus Jakarta Sans', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Atmosphere Ambient Radial Auras */
+.luxury-glow-champagne {
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.28) 0%, rgba(254, 240, 138, 0.05) 55%, transparent 75%);
+}
+
+.luxury-glow-blue {
+  background: radial-gradient(circle, rgba(155, 199, 232, 0.32) 0%, rgba(155, 199, 232, 0.06) 60%, transparent 80%);
+}
+
+/* Haute Pâtisserie Passe-Partout Museum Gallery Frame */
+.luxury-passepartout {
+  background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 
+    0 26px 55px -12px rgba(30, 22, 18, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.85) inset,
+    0 0 45px -10px rgba(155, 199, 232, 0.25);
+}
+
+/* Magazine Light Shimmer Reflection */
+@keyframes luxuryShimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  50%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.luxury-shimmer-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-shimmer-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: luxuryShimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Luxury CTA Pill Hover Shimmer */
+.shimmer-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(254, 240, 138, 0.22), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.group:hover .shimmer-effect {
+  transform: translateX(100%);
+}
+
+/* French Atelier Medallion Seal */
+.atelier-seal {
+  background: linear-gradient(135deg, #FFFDF8 0%, #F6EFE2 100%);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  box-shadow: 0 4px 20px rgba(30, 22, 18, 0.06);
+}
+
+/* 3 Pillars of Haute Pâtisserie Commitment Cards */
+.commitment-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 220, 200, 0.85);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.commitment-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(212, 175, 55, 0.55);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -6px rgba(45, 35, 30, 0.08), 0 0 18px -2px rgba(254, 240, 138, 0.3);
+}
+
+/* ==========================================================================
+   Ultra-Smooth Lightweight Luxury Cards (Feather-light, Zero Lag)
+   ========================================================================== */
+.card-3d {
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(30, 22, 18, 0.12), 0 0 22px -2px rgba(155, 199, 232, 0.18);
+}
+
+/* Subtle micro-depth accents on hover without heavy 3D matrix */
+.layer-3d-z1,
+.layer-3d-z2,
+.layer-3d-z3 {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-3d:hover .layer-3d-z1 {
+  transform: translateY(-1px);
+}
+
+.card-3d:hover .layer-3d-z2 {
+  transform: translateY(-2px);
+}
+
+.card-3d:hover .layer-3d-z3 {
+  transform: translateY(-3px);
+}
+
+
